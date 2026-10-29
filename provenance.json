@@ -47,7 +47,7 @@
       "path": "README.en.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "4ffc1092046701a8597ed2f34d26851216a8cafaddf15b3e9797974a6b9a407b",
+      "public_sha256": "18244c500a18f6921b5d37875d247a231fbf8f2e82b5e5958f182fed0369213c",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -55,7 +55,7 @@
       "path": "README.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "884c5012be37d40a3a5fe8e0a1579d5e181504c1ddc803fc3cdad0e225a169ba",
+      "public_sha256": "17aa5c3fc23e43352f4cf62b439d8b8a26e8149b3e0f6bc4a2ef7d4da5f1b080",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -737,6 +737,22 @@
       "original_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
       "public_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
       "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "docs/status.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "c9c59f2dc4d65f51c3bb2b9440e70c2a73d26ab49b11f0cf14cf7356eacb97df",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "docs/status.en.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "3fdda1becbeb164e663dd545252c6894b81ee3e4fb3cdcb45dec3d54cbbfb7ef",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     }
   ]
 }

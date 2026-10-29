@@ -1,14 +1,36 @@
-# Leica M10 Open Firmware — developer source release
+# Leica M10 toolkit — the four features and how far each got
 
-[中文](README.md). Independent project, not affiliated with Leica Camera AG.
+[Chinese](README.md). Independent project, not affiliated with Leica Camera AG.
 
-The intended product flow is **select features → download custom .FW → copy to SD →
-update manually in camera**. Today this project delivers executable developer source:
-the configuration drives real accepted C modules and film reference recipes, and
-the local UI downloads a deterministic SOURCE ZIP. Native callsites, ownership,
-placement, loader and recovery are still missing. There is no installable custom FW.
-The ordinary SD updater requires a strictly newer version; a genuine same-version
-4.26.36.10 package is not selected. No version relabelling is performed.
+Four features run today **on the author's own body**: **XPan framing, ASC looks,
+film looks, and touch.** None of them is yet a shared solution, because each is
+tied to that one machine's calibration, that one owner's official resources, and
+that one firmware version.
+
+That is what this repository is for: to carry them from "works on one machine"
+to "works on any M10". **Section 1 says what already runs, section 2 says what is
+missing, section 3 says why it only holds on one body.** Every gap can be picked
+up independently.
+
+## Start here
+
+| Document | Content |
+|---|---|
+| **[docs/status.en.md](docs/status.en.md)** ([中文](docs/status.md)) | **Where this stands**: per feature — how far it got, what is missing, how to claim it |
+| **[docs/quickstart.en.md](docs/quickstart.en.md)** ([中文](docs/quickstart.md)) | **Five-minute start**: fully offline, no camera needed |
+| [docs/what-we-need.en.md](docs/what-we-need.en.md) | **Questions only real hardware can settle**, each with the exact check and what it unblocks |
+| [docs/readonly-inspection.en.md](docs/readonly-inspection.en.md) | **Read-only inspection**: risk-free, and the right first step to baseline a body |
+
+## What this repository does not do
+
+**There is no firmware writer.** No flashing path, no device protocol sender, no
+way to produce a `.FW`. Everything here analyses, validates, or offline-recomputes
+files you already own. It will not touch your camera.
+
+Firmware writing, identity rewriting and package construction stay in a private
+tree until the public discussion reaches a conclusion. That does **not** limit
+what you can do: every gap listed above can be advanced without any write
+capability at all.
 
 ## Read these first
 

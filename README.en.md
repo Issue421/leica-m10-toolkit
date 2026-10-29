@@ -18,8 +18,8 @@ up independently.
 |---|---|
 | **[docs/status.en.md](docs/status.en.md)** ([中文](docs/status.md)) | **Where this stands**: per feature — how far it got, what is missing, how to claim it |
 | **[docs/quickstart.en.md](docs/quickstart.en.md)** ([中文](docs/quickstart.md)) | **Five-minute start**: fully offline, no camera needed |
-| [docs/what-we-need.en.md](docs/what-we-need.en.md) | **Questions only real hardware can settle**, each with the exact check and what it unblocks |
-| [docs/readonly-inspection.en.md](docs/readonly-inspection.en.md) | **Read-only inspection**: risk-free, and the right first step to baseline a body |
+| **[docs/contributing-ideas.md](docs/contributing-ideas.md)** | **Tasks that need no camera**: each with an entry point and an acceptance criterion |
+| [docs/architecture.md](docs/architecture.md) | **How the pieces fit**: source layout, host vs native boundary, what is qualified |
 
 ## What this repository does not do
 
@@ -36,13 +36,10 @@ capability at all.
 
 | Document | Content |
 |---|---|
-| **[docs/quickstart.en.md](docs/quickstart.en.md)** | **Five-minute start**: fully offline, no camera — recompute the claims, generate candidates, reverse them back |
-| **[docs/what-we-need.en.md](docs/what-we-need.en.md)** | **What we need from you**: eight questions only a body or a sample can settle, each with the exact check and what it unblocks |
-| [docs/modification-path.en.md](docs/modification-path.en.md) | **Modification path overview**: per feature — what is proven, what is missing, how to change it, how to check it, what it costs. Includes the full frameline / JPEG-crop design. |
-| [docs/readonly-inspection.en.md](docs/readonly-inspection.en.md) | **Read-only inspection**: the M10 gateway breaks PTP/IP in two ways (no `EndData`, length-less name in `InitCommandAck`). `tools/m10_ptp_readonly.py` handles both. |
-
-Read-only inspection is **risk-free** and is the right first step: it records a
-baseline (firmware version, all 159 properties) before anything else happens.
+| **[docs/quickstart.en.md](docs/quickstart.en.md)** | **Five-minute start**: fully offline, no camera — confirm the toolchain, evaluate a look, run the host reference |
+| **[docs/contributing-ideas.md](docs/contributing-ideas.md)** | **Concrete work you can do offline**: verify a documented claim, harden a parser, test the symbol extractor |
+| [docs/native-development.md](docs/native-development.md) | **Native development**: the portable composition/extract/verify/reverse workflow, and what stays unqualified |
+| [docs/verification.md](docs/verification.md) | **Verification record**: what was executed, with which local inputs, and what a passing host test does *not* establish |
 
 ## Verify before you believe
 
@@ -50,14 +47,18 @@ This repository redistributes no Leica firmware. Every claim here is a statement
 bytes inside **your own** copy, so each one can be recomputed locally:
 
 ```sh
-python3 tools/verify_analysis.py --fw M10-4.26.36.10-Customer.FW
-python3 tools/verify_analysis.py --fw M10-4.26.36.10-Customer.FW --asc-fw M10-P-ASC-4.26.36.10-Customer.FW
+python3 codec/independent_verify.py /path/to/M10-4.26.36.10-Customer.FW
 ```
 
-It prints seven PASS/FAIL checks: the seven menu-unhide sites, the 86 B2Y entries, the
-82 keys shared between editions, the 23 ASC-only `_FILMMODE` keys, the four generic
-entries as prefixes of the same-category `_FILMMODE:UNKNOWN` entries, that the look
-substitution actually changes bytes, and the XPan crop constants.
+It re-checks the package independently of the JavaScript codec: outer magic and
+format, COMP decode, TOC inspection, and against pinned full-package SHA-256 and
+277-record payload identity. It prints JSON with `accepted`, `payload_sha256`,
+`components` and `blocks`; a mismatch fails on the specific pin.
+
+It needs a package you supply yourself. With no firmware at all you can still
+exercise the codec on synthetic fixtures: `node --test codec/test_builder.mjs`
+(24 cases, including negative ones). See
+[docs/quickstart.en.md](docs/quickstart.en.md).
 
 **No camera, no private working files, and nothing written** (components are unpacked to a
 temporary directory). A full run takes two to three minutes because it expands a 127 MB
@@ -66,14 +67,21 @@ Modifying and flashing are a different matter. **This body gives you one flash a
 no independent recovery path.** That risk is yours — see section 6 of the
 modification path.
 
-## Note before publishing: the worktree differs from the released source ZIP
+## Note: the `package-*` / `models` / `identify` CLI is registered but not usable
 
-The `v0.2.1-dev` source ZIP does **not** contain the `package-*` CLI group; the
-current worktree does (`package-info` / `package-list` / `package-extract` /
-`package-diff` / `package-edit`, plus `models` / `identify`), together with the
-`leica_source/package_edit.py`, `package_profile.py` and `models.py` modules.
-The packaging commands in these documents rely on that CLI, so **regenerate the
-source archive before publishing** instead of reusing the old ZIP.
+Those subcommands appear in `--help` but the modules they import
+(`leica_source/package_edit.py`, `package_profile.py`, `models.py`) are **not in this
+tree**. Invoking them refuses with a clear message and points at the read-only
+alternative instead of raising `ImportError`:
+
+```sh
+node codec/package_builder.mjs inspect YOUR.FW
+node codec/package_builder.mjs diff ORIGINAL.FW REBUILT.bin
+```
+
+The packaging sections below describe container layout and acceptance criteria;
+they are documentation of intent, not shipped capability. If you need package
+authoring, say so in an issue rather than assuming the code is already public.
 
 Python 3.10+ standard library is enough for the UI/source build:
 

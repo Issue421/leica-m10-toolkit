@@ -59,6 +59,21 @@ def main(argv=None):
     a=sub.add_parser('package-build');a.add_argument('--base',required=True,type=Path);a.add_argument('--donor',required=True,type=Path);a.add_argument('--profile',required=True,type=Path);a.add_argument('--output-dir',required=True,type=Path);a.add_argument('--no-verify',action='store_true')
     args=p.parse_args(argv)
     try:
+        # The package-* group and models/identify depend on the package_edit,
+        # package_profile and models modules. Those are not part of this source
+        # tree, so the commands are registered for CLI-shape stability but are
+        # refused explicitly instead of raising ImportError.
+        needs=[]
+        if args.command in ('models','identify'): needs=['models']
+        elif args.command.startswith('package-'):
+            needs=['package_edit']
+            if args.command in ('package-matrix','package-interactive','package-build'): needs.append('package_profile')
+        missing=[m for m in needs if not Path(__file__).with_name(m+'.py').is_file()]
+        if missing:
+            raise ValueError('This source tree omits '+', '.join(m+'.py' for m in missing)+
+                             ', so `'+args.command+'` is unavailable. Read-only package inspection '
+                             'is available in codec/: `node codec/package_builder.mjs inspect FILE` '
+                             'and `node codec/package_builder.mjs diff ORIGINAL REFERENCE`.')
         if args.command in ('models','identify'):
             from . import models
             result=models.registry() if args.command=='models' else models.identify_many(args.inputs)

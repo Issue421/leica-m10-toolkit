@@ -33,9 +33,17 @@ offer a feature-bearing .FW for the intended manual SD workflow.
 ## Converged state (2026-10-29)
 
 Read-only device work is now possible, and several long-standing assumptions were
-corrected. See [docs/modification-path.md](docs/modification-path.md) for the full
-per-feature path and [docs/readonly-inspection.md](docs/readonly-inspection.md) for
-the protocol details.
+corrected. See [docs/status.md](docs/status.md) for the per-feature state,
+[docs/architecture.md](docs/architecture.md) for how the shipped pieces fit, and
+[docs/contributing-ideas.md](docs/contributing-ideas.md) for work that needs no
+hardware.
+
+> **Not in this tree.** The read-only PTP/IP client (`tools/m10_ptp_readonly.py`)
+> and the patch generators (`tools/m10_patch.py`, including its `xpan` mode) are
+> summarised below and were verified against hardware, but they are **not part of
+> this published source tree** — `tools/` here contains only `m10sym/extract.py`.
+> The findings are recorded so the protocol and crop-constant work can be
+> reproduced; the tooling itself is not shipped.
 
 Newly established:
 
@@ -61,10 +69,11 @@ Newly established:
 - **One-shot flash, no recovery**: same-version packages are rejected at discovery;
   the restore preaction is a logging stub; there is no A/B or golden image.
 
-Delivered in this tree: `tools/m10_ptp_readonly.py` (read-only, hardware-tested),
-`tools/m10_patch.py` (`menu` / `b2y` / `film` generators that operate on files the
-user supplies and reproduce the analysis artifacts byte-for-byte, plus `xpan` which
-emits the crop specification).
+Delivered **in the private research tree, not in this one**:
+`tools/m10_ptp_readonly.py` (read-only, hardware-tested) and `tools/m10_patch.py`
+(`menu` / `b2y` / `film` generators that operate on files the user supplies and
+reproduce the analysis artifacts byte-for-byte, plus `xpan` which emits the crop
+specification). Neither file is present here — see the note above.
 
 **XPan is the flagship crop target.** 65:24 cannot be widened on a 3:2 sensor, so it
 is a full-width, height-cropped 6016 × 2224 frame (13.4 MP, 0.12 % off 65:24, and the

@@ -1,8 +1,12 @@
-# Partial (`compr=1`) package toolchain
+# Partial (`compr=1`) packages — format reference
 
-Everything needed to reproduce, inspect and build a Leica M10 **calibration-style
-partial firmware package** — the small `.FW` files that carry one or two data files
-instead of a whole system image.
+A description of the Leica M10 **calibration-style partial firmware package** —
+the small `.FW` files that carry one or two data files instead of a whole system
+image — and of the `compr=1` stream they are built from.
+
+> **This page is a reference, not a toolchain.** The authoring tools that used to
+> live in this repository were removed in commit `a7a30c1`. What follows documents
+> the format so it can be read and verified; it does not provide a way to build one.
 
 No firmware bytes are distributed with this repository. The tools operate on images
 and packages you supply locally, and every integrity layer is verified before a

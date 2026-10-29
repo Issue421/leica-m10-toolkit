@@ -16,8 +16,8 @@
 |---|---|
 | **[docs/status.md](docs/status.md)**（[EN](docs/status.en.md)） | **现状与边界**：四项功能各自跑通到哪、差什么、怎么认领 |
 | **[docs/quickstart.md](docs/quickstart.md)**（[EN](docs/quickstart.en.md)） | **五分钟上手**：全程离线、不需要相机 |
-| [docs/what-we-need.md](docs/what-we-need.md) | **需要真机才能解的问题**，每条写了怎么查、能解开什么 |
-| [docs/readonly-inspection.md](docs/readonly-inspection.md) | **只读检查**：零风险，可以先用它给机器留一份基线 |
+| **[docs/contributing-ideas.md](docs/contributing-ideas.md)** | **不需要相机的具体任务**，每条带入口文件与验收标准 |
+| [docs/architecture.md](docs/architecture.md) | **各部分怎么拼**：源码布局、host 与 native 的边界、哪些还没有资格 |
 
 ## 这个仓库不做什么
 
@@ -28,23 +28,27 @@
 这些固件都是官网可以Fetch的公开固件。搭配我的框架就可以进行研究了，Github有限制，我无法直接上传。
 这**不影响**你要做的事：上面列的每一项缺口，都不需要写入能力就能推进。
 
-## 发布前须知：工作树与已发布源码包不同
+## 关于 `package-*` / `models` / `identify` 这组命令
 
-`v0.2.1-dev` 的源码 ZIP 里**没有** `package-*` 这组 CLI；当前工作树已经有（`package-info` /
-`package-list` / `package-extract` / `package-diff` / `package-edit`，以及 `models` / `identify`），
-依赖的 `leica_source/package_edit.py`、`package_profile.py`、`models.py` 也都在。
-本文档里的组包命令依赖这组 CLI，所以**对外发布前请重新生成源码包**，不要沿用旧 ZIP。
+这组 CLI **已经注册但不可用**：它们依赖的 `leica_source/package_edit.py`、
+`package_profile.py`、`models.py` **不在本树里**。调用时会明确拒绝并提示替代路径，
+而不是抛 ImportError。只读的包检查请用 `codec/`：
+
+```sh
+node codec/package_builder.mjs inspect YOUR.FW
+node codec/package_builder.mjs diff ORIGINAL.FW REBUILT.bin
+```
+
+需要包编辑/组包能力时，请在 issue 里说明用途，而不是假设它已经把代码一起公开了。
 
 ## 先读这两份
 
 | 文档 | 内容 |
 |---|---|
-| **[docs/quickstart.md](docs/quickstart.md)**（[EN](docs/quickstart.en.md)） | **五分钟上手**：全程离线、不需要相机，复算结论 → 生成候选 → 反向还原 |
-| **[docs/what-we-need.md](docs/what-we-need.md)** | **我们能请你做的事**：八个只有真机/样本才能解的问题，每条都写了怎么查、能解开什么 |
-| [docs/modification-path.md](docs/modification-path.md) | **修改路径总览**：六类目标逐项写清"已证明 / 缺口 / 改法 / 怎么验 / 风险"，含框线与 JPEG 裁切的完整设计 |
-| [docs/readonly-inspection.md](docs/readonly-inspection.md) | **只读检查**：M10 的 PTP/IP 有两处不合规（不发 `EndData`、ack 里的名字没有长度前缀），用 `tools/m10_ptp_readonly.py` 绕开 |
-
-只读检查是**零风险**的，可以先用它给机器留一份基线（固件版本、159 个属性）。
+| **[docs/quickstart.md](docs/quickstart.md)**（[EN](docs/quickstart.en.md)） | **五分钟上手**：全程离线、不需要相机，确认工具链 → 求值一款风格 → 跑主机参考实现 |
+| **[docs/contributing-ideas.md](docs/contributing-ideas.md)** | **离线能做的具体工作**：复验一条文档结论、加固一个解析器、给符号提取器加测试 |
+| [docs/native-development.md](docs/native-development.md) | **native 开发**：便携组合 / 提取 / 校验 / 反向流程，以及哪些仍未取得资格 |
+| [docs/verification.md](docs/verification.md) | **验证记录**：跑过什么、用了哪些本地输入，以及"主机测试通过"**不**等于什么 |
 
 ## 先验证，再相信
 
@@ -52,13 +56,16 @@
 所以每一步都可以自己复算：
 
 ```sh
-python3 tools/verify_analysis.py --fw M10-4.26.36.10-Customer.FW
-python3 tools/verify_analysis.py --fw M10-4.26.36.10-Customer.FW --asc-fw M10-P-ASC-4.26.36.10-Customer.FW
+python3 codec/independent_verify.py /path/to/M10-4.26.36.10-Customer.FW
 ```
 
-它会把 7 项检查逐条打印 PASS/FAIL：七个菜单解禁点、B2Y 的 86 条目、
-两版共享的 82 个键、ASC 独有的 23 个 `_FILMMODE` 键、四个通用条目与同类别
-`_FILMMODE:UNKNOWN` 的前缀关系、look 替换确实改了数据、以及 XPan 的裁切常数。
+它不依赖 JavaScript codec，独立复验整包：外层 magic 与格式、COMP 解码、TOC 检查，
+并对照固定的整包 SHA-256 与 277 项 payload 身份。输出 JSON 含 `accepted`、
+`payload_sha256`、`components`、`blocks`；不匹配会指出具体哪一项 pin 失败。
+
+它需要你自己提供一份固件包。在完全没有固件的情况下，仍可用合成样本检验 codec：
+`node --test codec/test_builder.mjs`（24 个用例，含反例）。详见
+[docs/quickstart.md](docs/quickstart.md)。
 
 **不需要相机，不需要我们的私有工作文件，也不写任何东西**（只解包到临时目录）。
 一次完整解码大约 2–3 分钟，因为要展开 127 MB 的包。
@@ -91,6 +98,12 @@ native 配置采用独立的 `m10-native-composition/v2` schema。
 [portable native development](docs/native-development.md)。
 
 ## 整包编辑（`package-*`）
+
+> **本节描述的能力不在本树里。** `leica_source/package_codec.py`、
+> `package_edit.py`、`package_profile.py` 均未随本树发布，所以下面这组命令
+> 目前只会明确拒绝（见上文说明）。容器只读检查请用 `codec/package_builder.mjs`
+> 的 `inspect` / `diff`。保留本节是因为它描述了容器格式与验收标准，
+> 供认领相关工作时参考。
 
 直接操作外层更新容器的 277 条 TOC 记录、组件体，以及包裹它们的 COMP 流。
 解码器与编码器都在 `leica_source/package_codec.py`，只用 Python 标准库，不需要 node。
@@ -143,6 +156,10 @@ python3 -B -m leica_source package-edit    --source M10-4.26.36.10-Customer.FW -
 完整往返需要 `M10_SLOW_TESTS=1`（约两分钟）。
 
 ## 型号与容器识别（`models` / `identify`）
+
+> **本节描述的能力不在本树里。** `leica_source/models.py` 未随本树发布，
+> 所以 `models` / `identify` 目前只会明确拒绝。下面的表格是识别依据的记录，
+> 供认领相关工作或自行实现时参考。
 
 三层信息是分开的，不能混为一谈：
 
@@ -311,6 +328,12 @@ python3 -m leica_source run-reference --config selection.json --original-serial 
 ```
 
 输出同时列出 A431/private 报告值、原始值、后续当前值、clear/default 后值及旧捕获值。
+
+> **注意：本仓库不含 identity 实现。** `host/identity/` 与 `modules/identity/` 都不在
+> 这份代码树里，所以上面这条命令**不会产生 identity 输出**——它会静默返回
+> `modules: [film, touch, wb, controller, framing]`，没有 `identity` 键。上面描述的
+> 行为来自私有实现，这里保留的是调用侧约定，不是可运行的功能。
+
 `host/identity/` 的 native-segment double 与 private-ready 只用于主机边界，不是原生 builder；
 生产 `mb_thumb_builder` 继续 unresolved。没有持久化、全部身份覆盖或无痕承诺。
 

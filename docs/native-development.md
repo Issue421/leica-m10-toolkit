@@ -115,8 +115,14 @@ version identity remain unresolved for a custom update.
 Focused adapter checks:
 
 ```sh
-python3 -B -m unittest discover -s tests -p test_native_portable.py -v
+python3 -B -m unittest discover -s tests -p 'test_*.py' -v
 ```
+
+There is no `tests/test_native_portable.py` in this tree. The portable native
+adapters are covered by `tests/test_source.py` and `tests/test_additions.py`, so
+discover with the default pattern rather than a module name that does not exist —
+`-p test_native_portable.py` matches nothing, runs 0 tests and still prints `OK`,
+which looks like a pass but verifies nothing.
 
 The old native numerical/static suites and full codec suites are reused as prior
 evidence; these commands do not rerun them. The portable validation decodes ordinary

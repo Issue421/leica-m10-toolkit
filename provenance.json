@@ -47,7 +47,7 @@
       "path": "README.en.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "18244c500a18f6921b5d37875d247a231fbf8f2e82b5e5958f182fed0369213c",
+      "public_sha256": "c429c2b0714266008f2c5eaebb18c0b415e1a341a3f0afdf8654a3a58e1fdf67",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -55,7 +55,7 @@
       "path": "README.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "5f2e1750e4ae155073c59e0e0de4b45015cb661f0bc732cad3a64b9f76ffe62e",
+      "public_sha256": "18c8a7b39def027fc82c023833117ca0359b0e45ed837a28bbd09af954f14b8e",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -63,7 +63,7 @@
       "path": "ROADMAP.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "70799971e8fe2e673863fd3714d9b6b663f7839f879c91a4739a44951bb9c4d1",
+      "public_sha256": "fc07fadf633e4cbc6539eec0ce93fa6417a1ce9aee61a1b1f50007800b749c65",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -111,7 +111,7 @@
       "path": "docs/native-development.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "c680ab774764d00cace91c9a8e4e358cb5d90a37c6fed1bddfa946fcb0514ade",
+      "public_sha256": "a6b147e27d902657454a2800f15d7cdc14d5c0a540fd49960311f78e1c8afc4e",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -143,7 +143,7 @@
       "path": "leica_source/__main__.py",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "872a5364763091bf637e8c0fefd8f88302fbcaaa548f2b3f3da4232ef3c79286",
+      "public_sha256": "08c1aa15b97ac47cb686e173e68a177cab44a6c7ab2f3e848275314726d38c67",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -743,7 +743,7 @@
       "path": "docs/status.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "c9c59f2dc4d65f51c3bb2b9440e70c2a73d26ab49b11f0cf14cf7356eacb97df",
+      "public_sha256": "51df982a3fe798a121191536bcef97bb7024139eb099bad5a8611bb53d0023b1",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -751,7 +751,7 @@
       "path": "docs/status.en.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "3fdda1becbeb164e663dd545252c6894b81ee3e4fb3cdcb45dec3d54cbbfb7ef",
+      "public_sha256": "f2ed4d42f7221a7d381025a4e7904e38a61eca3af7ecbe228389efb88c30ecb9",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     }
   ]

@@ -38,14 +38,30 @@ values are written.
 - Three-axis offsets: width `+896×c0c`, height and origin `+448×c0e`
 - Target ratio written to `cfg[+0x12]`, output dimensions read from `cfg[+0x14]`
 
-**How far it got**: derivation complete, applied to a self-supplied image with
-correct resulting structure.
+**How far it got**: derivation complete, the patch applied to a self-supplied
+image and packaged into a structurally valid firmware (45/45 container checks
+pass) — but **never flashed to a body**.
+
+**One thing that has to be said plainly**: none of the constants above (`2224`,
+`2208`, `6016`, `896`, `0xc0c`, `0xc0e`) appear in **any code file in this
+repository**. They exist only in prose. `modules/framing/` is live-view frameline
+geometry on a 3600×2400 logical surface — a different subsystem. So a reader
+cannot currently re-check this claim in code, which is exactly what task B1 in
+`docs/contributing-ideas.md` is for.
 
 **Why it is not yet a shared solution**: the ratio baseline has two candidate
-values (2224 / 2208) and only one of them was confirmed, on one body. A second
-and third machine are needed to report their own correct baseline.
+values (2224 / 2208), which cannot be settled statically, and only one of them
+was confirmed on one body. A second and third machine are needed to report their
+own correct baseline.
 
-**This is the easiest item to pick up** — it needs one M10 and one measurement.
+**Two unresolved risks**: the patch landing site `0x421f6ee0` is 981 bytes of
+zero padding in the file, but whether it is used as buffer/BSS at runtime cannot
+be ruled out statically; and the semantics of the four scalars at
+`cfg+0x18..+0x24` are not decoded, so if they participate in the crop rectangle
+the patch would be self-contradictory.
+
+**It needs one M10 and one measurement** — but note that flashing a real body
+carries risk, see section 4.
 
 ### 1.2 ASC looks (10 Classic / 01 Contemporary)
 
@@ -83,14 +99,23 @@ have not been closed on hardware.
 
 ### 1.4 Touch
 
-The gesture decomposition is fully worked out — not guessed.
-
 - `modules/touch/`: 457 lines
-- The gesture accumulator state machine, with every state 0–3 transition
 - M10-P `calculate_gesture` is 3336 bytes, M10 is 3264 bytes; the first 15
-  instructions are byte-identical
+  instructions are byte-identical, and M10-P additionally has a 106-byte
+  whitelist dispatch at `0xCE5D8`–`0xCE646`
 
-**How far it got**: decomposition is correct, every state-machine path walks.
+**How far it got**: what `modules/touch/` actually implements is **event routing
+and pool lifetime management** — producer-tail repair (`tr_forward` /
+`tr_completed_tail`), payload event filtering (`0x113`–`0x116`, `0x120`–`0x124`,
+sentinel `0x211`), a debug-state predicate (`0x13a` / `0x13d`), and
+`trc_pool_init/begin/finish/copy/reclaim_metadata`.
+
+**Correcting an earlier misdescription**: a previous revision claimed this folder
+held "the gesture accumulator state machine, with every state 0–3 transition".
+**No such state machine exists in this repository** —
+`grep -ri gesture modules/touch/` returns a single hit, the comment
+`/* full raw status; no gesture wrapper */`. The gesture byte sizes (3336 / 3264)
+come from private analysis and are not re-checkable in this tree.
 
 **Why it is not yet a shared solution**: the producer call site, the 7-argument
 ABI, and the pool lifetime and synchronisation are all still open.
@@ -178,16 +203,22 @@ This does not limit what you can do: every item in section 3 can be advanced
 # 1. confirm the toolchain itself is correct
 python3 -m unittest discover -s tests
 
-# 2. read one of your own packages
-python3 -m leica_source package-info <your.fw>
+# 2. read one of your own packages (read-only; you supply the firmware)
+python3 codec/independent_verify.py <your.fw>
 
 # 3. see how the symbol extractor works
 python3 tools/m10sym/extract.py --help
 ```
 
+Step 2 needs a package you provide yourself. To exercise the codec with no firmware
+at all, use `node --test codec/test_builder.mjs` (24 synthetic cases).
+
 Then pick an item from section 3. If you want to claim one, open an issue with
 your model and firmware version — that is how we find out whether any of this
 generalises beyond one body.
+
+**Tasks that need no hardware**, each with an entry point and an acceptance
+criterion, are listed in [docs/contributing-ideas.md](contributing-ideas.md).
 
 ---
 

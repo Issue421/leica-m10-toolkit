@@ -1,0 +1,49 @@
+{
+  "baseline": "M10-4.26.36.10",
+  "features": {
+    "frame_guides": {
+      "enabled": true,
+      "preset": 0
+    },
+    "jpeg_crop": false,
+    "low_noise_shutter": false,
+    "reported_serial": "7654321",
+    "styles": {
+      "default": "velvia100",
+      "enabled": [
+        "normal",
+        "asc_classic",
+        "asc_contemporary",
+        "cinestill800t",
+        "velvia100",
+        "e100",
+        "kodachrome64",
+        "aerocolor-iv-v1",
+        "double-x-5222-mono-v1",
+        "ektar-100-edge-v1",
+        "eterna-500t-3523xd-v1",
+        "gold-200-premier-v1",
+        "hp5-plus-400-mono-v1",
+        "instax-v1",
+        "portra-400-endura-v1",
+        "portra-800-push2-v1",
+        "pro-400h-crystal-v1",
+        "red-filter-mono-v1",
+        "trix-400-mono-v1",
+        "vision3-250d-2383-v1",
+        "vision3-500t-supra-v1",
+        "xtra-400-crystal-v1"
+      ]
+    },
+    "touch": true,
+    "wb": {
+      "enabled": true,
+      "gains": [
+        "2",
+        "1",
+        "1/2"
+      ]
+    }
+  },
+  "schema": "leica.source-selection/v1"
+}

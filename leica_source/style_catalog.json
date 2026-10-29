@@ -1,0 +1,134 @@
+[
+  {
+    "id": "normal",
+    "name": "NORMAL",
+    "backend": "normal-native-resource",
+    "device_status": "blocked-native-imports"
+  },
+  {
+    "id": "asc-classic",
+    "name": "ASC Classic",
+    "backend": "asc-native-resource",
+    "device_status": "blocked-native-imports"
+  },
+  {
+    "id": "asc-contemporary",
+    "name": "ASC Contemporary",
+    "backend": "asc-native-resource",
+    "device_status": "blocked-native-imports"
+  },
+  {
+    "id": "800t",
+    "name": "Cinestill 800T",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "aerocolor-iv-v1",
+    "name": "Aerocolor IV",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "double-x-5222-mono-v1",
+    "name": "Double-X 5222",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "ektachrome-e100-v1",
+    "name": "Ektachrome E100",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "ektar-100-edge-v1",
+    "name": "Ektar 100",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "eterna-500t-3523xd-v1",
+    "name": "Eterna 500T",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "gold-200-premier-v1",
+    "name": "Gold 200",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "hp5-plus-400-mono-v1",
+    "name": "HP5 Plus 400",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "instax-v1",
+    "name": "Instax",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "kodachrome-64-v1",
+    "name": "Kodachrome 64",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "portra-400-endura-v1",
+    "name": "Portra 400",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "portra-800-push2-v1",
+    "name": "Portra 800 +2",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "pro-400h-crystal-v1",
+    "name": "Pro 400H",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "red-filter-mono-v1",
+    "name": "Tri-X 400 Red",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "trix-400-mono-v1",
+    "name": "Tri-X 400",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "velvia-100-v1",
+    "name": "Velvia 100",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "vision3-250d-2383-v1",
+    "name": "Vision3 250D",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "vision3-500t-supra-v1",
+    "name": "Vision3 500T",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  },
+  {
+    "id": "xtra-400-crystal-v1",
+    "name": "Superia 400",
+    "backend": "source-recipe",
+    "device_status": "blocked-native-translation"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "schema": "m10-native-composition/v2",
+  "components": [
+    {
+      "component": "asc",
+      "enabled": true
+    },
+    {
+      "component": "fine-wb",
+      "backend": "fine-grid-1/256",
+      "multipliers": {
+        "R": {
+          "numerator": 257,
+          "denominator": 256
+        },
+        "G": {
+          "numerator": 256,
+          "denominator": 256
+        },
+        "B": {
+          "numerator": 255,
+          "denominator": 256
+        }
+      }
+    }
+  ]
+}

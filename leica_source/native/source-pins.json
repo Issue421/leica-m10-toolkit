@@ -1,0 +1,56 @@
+{
+  "license_scope": "Project original source/adaptations under existing root MIT; no new grant for official inputs or third-party sources",
+  "origins": {
+    "fine_semantics.py": {
+      "source_identity": "native-fine-wb/semantics.py",
+      "source_sha256": "1324b8ea85ab6973f9580e243e07222f7e15b05e6937a57923f6b10ce168fab1",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "fine_template.S": {
+      "source_identity": "native-fine-wb/native_template.S",
+      "source_sha256": "4d5912b101008de8687f9ac3db83f3f9226b63e19b33a496fc546d9d0ea95870",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "legacy_semantics.py": {
+      "source_identity": "native-build-time-wb/semantics.py",
+      "source_sha256": "ded581cb3b2a2dc939fb66246df4561fd7bb7e2e5d4faf8c58cab58f5332d157",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "legacy_template.S": {
+      "source_identity": "native-build-time-wb/native_template.S",
+      "source_sha256": "369512f847cc7c0875198210209b3103c2007dcd157f6a87573e7d42d7e2518b",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "loader_failure.S": {
+      "source_identity": "native-asc-load-failure/loader_failure.S",
+      "source_sha256": "ec74dc92cb3919f03478f190a115af62b0b93119d9abc4deb89219260490fa8b",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "native_selectors.S": {
+      "source_identity": "native-asc-selector-integration/native_selectors.S",
+      "source_sha256": "4aae9eb7ddba30f9562d7f473257cdfb4b09e1b3419568844e7928928625831c",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    "recipes.json": {
+      "accepted_fine_composer_sha256": "88e82440c99b2dbfcd2fc81b4ba051af45a7b683eea60a54a77fda1e4d7b2c4e",
+      "frozen_recipe_count": 10,
+      "recipe_sha256": "f00b17e06544f076197f2a87c23c621b375e177891d05767b0f91a651cdd6151",
+      "runtime_owned_bytes_combined": 1415,
+      "runtime_owned_window_count_combined": 12,
+      "source_identity": "accepted ASC8 / fine and legacy fragments",
+      "transformation": "project-authored encoding recipe with every matching native halfword span referenced back into stock; no original window image retained"
+    },
+    "resource.py": {
+      "source_identity": "public modules/asc/b2y.py",
+      "source_sha256": "b2b4b711bee8876e41b4d67829df9d1576abbb0abddc0f0cb06d29e080583263",
+      "transformation": "exact source bytes, portable destination only"
+    }
+  },
+  "prior_evidence_reused": {
+    "fine_composer_checks": 119,
+    "fine_host_assertions": 410214,
+    "fine_static_assertions": 506,
+    "native_or_codec_original_suites_rerun": false
+  },
+  "schema": "m10-portable-native-source-origins/v1"
+}

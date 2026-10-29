@@ -1,0 +1,28 @@
+{
+  "baseline": "M10-4.26.36.10",
+  "features": {
+    "frame_guides": {
+      "enabled": false,
+      "preset": 0
+    },
+    "jpeg_crop": false,
+    "low_noise_shutter": false,
+    "reported_serial": null,
+    "styles": {
+      "default": "normal",
+      "enabled": [
+        "normal"
+      ]
+    },
+    "touch": false,
+    "wb": {
+      "enabled": false,
+      "gains": [
+        "1",
+        "1",
+        "1"
+      ]
+    }
+  },
+  "schema": "leica.source-selection/v1"
+}

@@ -1,0 +1,742 @@
+{
+  "schema": "leica.source-provenance/v1",
+  "policy": "Source-only allowlist. Original paths are workspace-relative provenance, never runtime dependencies. No firmware or recovered instruction mirror redistributed.",
+  "files": [
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/licenses/frame-GPL-2.0.txt",
+      "path": "LICENSES/GPL-2.0-only.txt",
+      "license": "GPL-2.0-only",
+      "original_sha256": "6f04ae8364d0079a192b14635f4b1da294ce18724c034c39a6a41d1b09df6100",
+      "public_sha256": "6f04ae8364d0079a192b14635f4b1da294ce18724c034c39a6a41d1b09df6100",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/reference-sources/grkit/LICENSE",
+      "path": "LICENSES/GRKit-MIT.txt",
+      "license": "MIT",
+      "original_sha256": "1f1852ac5a34cc94b6167c83b1d04ff5d7485e0ce09f4b2613a57b6ec5085308",
+      "public_sha256": "1f1852ac5a34cc94b6167c83b1d04ff5d7485e0ce09f4b2613a57b6ec5085308",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/reference-sources/grkit/effects/NOTICE.md",
+      "path": "LICENSES/GRKit-effects-NOTICE.md",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "225248af411413eb1ee2dcbbe939aef876a2cf091ad04d4b7d1092dd64575aa0",
+      "public_sha256": "120769e408b954684b3bbaf458832d4c574d711b16007d4d9cde6131c8cb14d5",
+      "transformation": "Retain applicable spektrafilm/GRKit fit attribution; trim absent unrelated effects/fonts and replace missing local source-notice links with bundled notice. Explicit subset notice, CC-BY-SA-4.0."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/reference-sources/grkit/effects/sources/SPEKTRAFILM_LICENSE.txt",
+      "path": "LICENSES/SPEKTRAFILM-LICENSE.txt",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "76d629501783ae52e8d63aee1e054c1e1a9713b9fe7d36fb306e25b1d14b24e9",
+      "public_sha256": "76d629501783ae52e8d63aee1e054c1e1a9713b9fe7d36fb306e25b1d14b24e9",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "NOTICE.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "ea2519ac472fe1d45e3c1da8682fb65b49de6ede4175eabd015bb9ca17a9e497",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "README.en.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "4ffc1092046701a8597ed2f34d26851216a8cafaddf15b3e9797974a6b9a407b",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "README.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "884c5012be37d40a3a5fe8e0a1579d5e181504c1ddc803fc3cdad0e225a169ba",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "ROADMAP.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "70799971e8fe2e673863fd3714d9b6b663f7839f879c91a4739a44951bb9c4d1",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "codec/__init__.py",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "e72bfd63fc36acb756fa822bdd4d745b458535161f861d2d45b337563da63535",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/component-update-recovery-20261028/package_inspector.py",
+      "path": "codec/independent_decoder.py",
+      "license": "MIT",
+      "original_sha256": "97f569e4ce04bac2cd9203385235efd44cc271260bc78610e70a19658981e159",
+      "public_sha256": "f8bfb89dd1a3383abfa5070159ca3e16048aab7a4611cde62612d64ec354a050",
+      "transformation": "Extract exact independent decoder/TOC/read-bound helper definitions; exclude historical indexes, protocol fixture loader and research CLI. Portable optional open flags only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/main-firmware-package-builder-20261029/independent_verify.py",
+      "path": "codec/independent_verify.py",
+      "license": "MIT",
+      "original_sha256": "8976cc0be3f420dc8f677858a1a7f91dcc7aa1d8afad4499f5a54f665606b01e",
+      "public_sha256": "a70b1c38983b28d362fab84a6dcbef09d2949b090fa8926cc0405f1ae260f753",
+      "transformation": "Portable wrapper rewritten around relative independent_decoder import; full package/payload pins replace unshipped private historical per-row index; no per-row index comparison claimed."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/main-firmware-package-builder-20261029/package_builder.mjs",
+      "path": "codec/package_builder.mjs",
+      "license": "MIT",
+      "original_sha256": "81947ba514c4f862a70b04a75e87ac7f01be835c5ae1b3e10e0319cce4d8304d",
+      "public_sha256": "7a44f3e7595d7326f42f158ddcfeeaaca8fd0434c5edddacd0a07bef4d09848a",
+      "transformation": "Only local CLI input/output paths and portable regular-file flags changed. COMP/TOC encode/decode/qualification functions unchanged."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/main-firmware-package-builder-20261029/test_builder.mjs",
+      "path": "codec/test_builder.mjs",
+      "license": "MIT",
+      "original_sha256": "4e3f58be5c4d06d5a0c448d99554e590cb4fb64d78b2b91d52f3bfe5f8ad8848",
+      "public_sha256": "a6c4ab9f9756d0cab838a3f1736c765d6bcf3c10660027e0eb483b204c090bc9",
+      "transformation": "Retain all 24 synthetic codec tests; use PYTHON environment override for portable interpreter selection."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "docs/native-development.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "c680ab774764d00cace91c9a8e4e358cb5d90a37c6fed1bddfa946fcb0514ade",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "examples/native-legacy-v1.json",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "4f4efc85d749a27f9a212091d322d0700c341fcd3468089caf90d1b605704758",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "examples/native-original.json",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "2b8b4fda14e9b4bf275c87e8702761c47242f4d2c012672688c83cd4a517cd5f",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "examples/native-synthetic-combined.json",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "3d2046185fed5c7c584743eec91afdf251db0a44d60e8bca47259afc8a809d8c",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "leica_source/__main__.py",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "872a5364763091bf637e8c0fefd8f88302fbcaaa548f2b3f3da4232ef3c79286",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "leica_source/export.py",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "5a9481d4059eb9222e12a82be0926a46513a37190d964c242fe53f469894b19c",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "leica_source/native/__init__.py",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "0c016e0163847ec4366e43eadab3c7920cbcfcbd53c9701d71ec145682e98f3f",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "native-fine-wb/semantics.py",
+      "path": "leica_source/native/fine_semantics.py",
+      "license": "MIT",
+      "original_sha256": "1324b8ea85ab6973f9580e243e07222f7e15b05e6937a57923f6b10ce168fab1",
+      "public_sha256": "1324b8ea85ab6973f9580e243e07222f7e15b05e6937a57923f6b10ce168fab1",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "native-fine-wb/native_template.S",
+      "path": "leica_source/native/fine_template.S",
+      "license": "MIT",
+      "original_sha256": "4d5912b101008de8687f9ac3db83f3f9226b63e19b33a496fc546d9d0ea95870",
+      "public_sha256": "4d5912b101008de8687f9ac3db83f3f9226b63e19b33a496fc546d9d0ea95870",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "native-build-time-wb/semantics.py",
+      "path": "leica_source/native/legacy_semantics.py",
+      "license": "MIT",
+      "original_sha256": "ded581cb3b2a2dc939fb66246df4561fd7bb7e2e5d4faf8c58cab58f5332d157",
+      "public_sha256": "ded581cb3b2a2dc939fb66246df4561fd7bb7e2e5d4faf8c58cab58f5332d157",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "native-build-time-wb/native_template.S",
+      "path": "leica_source/native/legacy_template.S",
+      "license": "MIT",
+      "original_sha256": "369512f847cc7c0875198210209b3103c2007dcd157f6a87573e7d42d7e2518b",
+      "public_sha256": "369512f847cc7c0875198210209b3103c2007dcd157f6a87573e7d42d7e2518b",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "native-asc-load-failure/loader_failure.S",
+      "path": "leica_source/native/loader_failure.S",
+      "license": "MIT",
+      "original_sha256": "ec74dc92cb3919f03478f190a115af62b0b93119d9abc4deb89219260490fa8b",
+      "public_sha256": "ec74dc92cb3919f03478f190a115af62b0b93119d9abc4deb89219260490fa8b",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "native-asc-selector-integration/native_selectors.S",
+      "path": "leica_source/native/native_selectors.S",
+      "license": "MIT",
+      "original_sha256": "4aae9eb7ddba30f9562d7f473257cdfb4b09e1b3419568844e7928928625831c",
+      "public_sha256": "4aae9eb7ddba30f9562d7f473257cdfb4b09e1b3419568844e7928928625831c",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "accepted ASC8 / fine and legacy fragments",
+      "path": "leica_source/native/recipes.json",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "f00b17e06544f076197f2a87c23c621b375e177891d05767b0f91a651cdd6151",
+      "transformation": "project-authored encoding recipe with every matching native halfword span referenced back into stock; no original window image retained"
+    },
+    {
+      "origin": "public modules/asc/b2y.py",
+      "path": "leica_source/native/resource.py",
+      "license": "MIT",
+      "original_sha256": "b2b4b711bee8876e41b4d67829df9d1576abbb0abddc0f0cb06d29e080583263",
+      "public_sha256": "b2b4b711bee8876e41b4d67829df9d1576abbb0abddc0f0cb06d29e080583263",
+      "transformation": "exact source bytes, portable destination only"
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "leica_source/native/source-pins.json",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "c04e64190987d32218f46861a1f038c336adb2e44f42cc11e0acf8e53012bee7",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/catalog.json",
+      "path": "leica_source/style_catalog.json",
+      "license": "MIT",
+      "original_sha256": "4e47f4e8a1d9eedf8c20749182667489f59f334cd8a2431cabbb106d6a96a074",
+      "public_sha256": "3f883250c325fe61819f8a4de784462c416e7ae6ca9b5ec84f82f0efbd06be24",
+      "transformation": "Portable subset of accepted 22-item catalog: IDs, display names, backend and native status. Detailed recipe origins/licenses remain in recipe_catalog.json."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/color-style-adaptation-20261028/b2y_host_model.py",
+      "path": "modules/asc/b2y.py",
+      "license": "MIT",
+      "original_sha256": "d43386f97a54946776ebced989f57ef982ae7313c3b613c4f059a865b7d81b86",
+      "public_sha256": "b2b4b711bee8876e41b4d67829df9d1576abbb0abddc0f0cb06d29e080583263",
+      "transformation": "Exact Entry/Resource/parse/encode/hybrid definitions extracted; omit private workspace I/O and research run/report routines. Local composition is host-only, not a firmware patch."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-asc-source-20261029/source/closed_imports.c",
+      "path": "modules/asc/closed_imports.c",
+      "license": "MIT",
+      "original_sha256": "a70635650c49cb67fed5f72405833949aa0f0a2ee42cbb2f0b4658a4648d7d88",
+      "public_sha256": "a70635650c49cb67fed5f72405833949aa0f0a2ee42cbb2f0b4658a4648d7d88",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-asc-source-20261029/source/m10_asc.c",
+      "path": "modules/asc/m10_asc.c",
+      "license": "MIT",
+      "original_sha256": "dabdc13d9c0baf5098b7204f8d107fe6f258373ff22c22e1f4c76ca7136533de",
+      "public_sha256": "dabdc13d9c0baf5098b7204f8d107fe6f258373ff22c22e1f4c76ca7136533de",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-asc-source-20261029/include/m10_asc.h",
+      "path": "modules/asc/m10_asc.h",
+      "license": "MIT",
+      "original_sha256": "e7129d14e0dfbc9dfc053853c473ebe39fcc6c3e70d345452d71acab3730584e",
+      "public_sha256": "e7129d14e0dfbc9dfc053853c473ebe39fcc6c3e70d345452d71acab3730584e",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/style-framing-controller-20261029/source/film_closed.c",
+      "path": "modules/controller/film_closed.c",
+      "license": "MIT",
+      "original_sha256": "83f945d7e1651eeaf6d669e56964009dcdffa9318278d18845caa74cc0c8f6af",
+      "public_sha256": "83f945d7e1651eeaf6d669e56964009dcdffa9318278d18845caa74cc0c8f6af",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/style-framing-controller-20261029/source/style_framing.c",
+      "path": "modules/controller/style_framing.c",
+      "license": "MIT",
+      "original_sha256": "c7e7b886eb0d0248cd4c1a6432a96c59b5c86aa6a8730f147bca3c9c86915856",
+      "public_sha256": "c7e7b886eb0d0248cd4c1a6432a96c59b5c86aa6a8730f147bca3c9c86915856",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/style-framing-controller-20261029/include/style_framing.h",
+      "path": "modules/controller/style_framing.h",
+      "license": "MIT",
+      "original_sha256": "2406d1bb3e90e2edb8eb3817261973203e1d87ed2c631eab7b19b4acba9cebf9",
+      "public_sha256": "90058c629994356b9eb01b0ec57dc75f32434188198c81d4be905c779b51773b",
+      "transformation": "Only local include paths adapted to existing portable ASC/framing directories; definitions unchanged."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/aerocolor-iv-v1.json",
+      "path": "modules/film/deltas/aerocolor-iv-v1.json",
+      "license": "MIT",
+      "original_sha256": "3b5e743870a59d56c4e70b83f398cb2a005ba58a4a73efe75e8612e0f4aedb2b",
+      "public_sha256": "3b5e743870a59d56c4e70b83f398cb2a005ba58a4a73efe75e8612e0f4aedb2b",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/double-x-5222-mono-v1.json",
+      "path": "modules/film/deltas/double-x-5222-mono-v1.json",
+      "license": "MIT",
+      "original_sha256": "8c1de272fbcb712644a9d242bbf1ec7804405589e3ff0452d87cdbfd295d5112",
+      "public_sha256": "8c1de272fbcb712644a9d242bbf1ec7804405589e3ff0452d87cdbfd295d5112",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/ektachrome-e100-v1.json",
+      "path": "modules/film/deltas/ektachrome-e100-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "51c03a360a7d87968c9a5a8b4b9e976135e2ebd136a139ddf1f2d2510cd65549",
+      "public_sha256": "51c03a360a7d87968c9a5a8b4b9e976135e2ebd136a139ddf1f2d2510cd65549",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/ektar-100-edge-v1.json",
+      "path": "modules/film/deltas/ektar-100-edge-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "32789c6c020376a10907c2c343240a116fe3d8d6996543c04be6e45f82ba574f",
+      "public_sha256": "32789c6c020376a10907c2c343240a116fe3d8d6996543c04be6e45f82ba574f",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/eterna-500t-3523xd-v1.json",
+      "path": "modules/film/deltas/eterna-500t-3523xd-v1.json",
+      "license": "MIT",
+      "original_sha256": "13da56494c3c77b436ebc026c51d9012c452f358d9a325e3e55a860f3ef3a6a4",
+      "public_sha256": "13da56494c3c77b436ebc026c51d9012c452f358d9a325e3e55a860f3ef3a6a4",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/gold-200-premier-v1.json",
+      "path": "modules/film/deltas/gold-200-premier-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "6bdf5e3d32f6e584e1242b9c8ef851be7a60407f2a20d4cf26e5629cd1a35f87",
+      "public_sha256": "6bdf5e3d32f6e584e1242b9c8ef851be7a60407f2a20d4cf26e5629cd1a35f87",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/hp5-plus-400-mono-v1.json",
+      "path": "modules/film/deltas/hp5-plus-400-mono-v1.json",
+      "license": "MIT",
+      "original_sha256": "d936961a319b1fe6008fa80abc9a6c45be87bd1c6a155ec33ea8efe8e12e8612",
+      "public_sha256": "d936961a319b1fe6008fa80abc9a6c45be87bd1c6a155ec33ea8efe8e12e8612",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/instax-v1.json",
+      "path": "modules/film/deltas/instax-v1.json",
+      "license": "MIT",
+      "original_sha256": "9163af65109406eacb89062f2bbc2ad14e2fa25f77d91cb7d4d51ec34b91bff6",
+      "public_sha256": "9163af65109406eacb89062f2bbc2ad14e2fa25f77d91cb7d4d51ec34b91bff6",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/kodachrome-64-v1.json",
+      "path": "modules/film/deltas/kodachrome-64-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "849b806a7ae032d89d509e9c5d239f7980735f52532c6ce7b9ec3dd97001c48a",
+      "public_sha256": "849b806a7ae032d89d509e9c5d239f7980735f52532c6ce7b9ec3dd97001c48a",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/portra-400-endura-v1.json",
+      "path": "modules/film/deltas/portra-400-endura-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "19f49af3a08ad68c287087f811aa6f5604e69429720a7b667568eeb94930c35f",
+      "public_sha256": "19f49af3a08ad68c287087f811aa6f5604e69429720a7b667568eeb94930c35f",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/portra-800-push2-v1.json",
+      "path": "modules/film/deltas/portra-800-push2-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "661815c0d82a15821f827506a2c8d43e097ac3aab2304c71bc8ab5480b3a2379",
+      "public_sha256": "661815c0d82a15821f827506a2c8d43e097ac3aab2304c71bc8ab5480b3a2379",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/pro-400h-crystal-v1.json",
+      "path": "modules/film/deltas/pro-400h-crystal-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "deef23eec240aaa9660d22ffacaad47611db8632db09873cf05f339897e6852c",
+      "public_sha256": "deef23eec240aaa9660d22ffacaad47611db8632db09873cf05f339897e6852c",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/red-filter-mono-v1.json",
+      "path": "modules/film/deltas/red-filter-mono-v1.json",
+      "license": "MIT",
+      "original_sha256": "5a9247006e28003cc26140ce5b05bd8cfade03c0bc7d6ef8530c70c8d013a175",
+      "public_sha256": "5a9247006e28003cc26140ce5b05bd8cfade03c0bc7d6ef8530c70c8d013a175",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/trix-400-mono-v1.json",
+      "path": "modules/film/deltas/trix-400-mono-v1.json",
+      "license": "MIT",
+      "original_sha256": "a1282465a1078f913c9b1db55248c52ac3efefe4ba4947e111135448e0910225",
+      "public_sha256": "a1282465a1078f913c9b1db55248c52ac3efefe4ba4947e111135448e0910225",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/velvia-100-v1.json",
+      "path": "modules/film/deltas/velvia-100-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "6de3542aa206348aebf1322e191155cc5c9fe688c17acfd833c79b1b1c187fae",
+      "public_sha256": "6de3542aa206348aebf1322e191155cc5c9fe688c17acfd833c79b1b1c187fae",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/vision3-250d-2383-v1.json",
+      "path": "modules/film/deltas/vision3-250d-2383-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "a8b1644d96c01bb4ca11814fa51a3d3b3757b2cb7e246d823febbae4103b340e",
+      "public_sha256": "a8b1644d96c01bb4ca11814fa51a3d3b3757b2cb7e246d823febbae4103b340e",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/vision3-500t-supra-v1.json",
+      "path": "modules/film/deltas/vision3-500t-supra-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "8ef85bbf43f16c00531395e56de5e69a2505be2a0f01063be2ffbb890e00670c",
+      "public_sha256": "8ef85bbf43f16c00531395e56de5e69a2505be2a0f01063be2ffbb890e00670c",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/deltas/xtra-400-crystal-v1.json",
+      "path": "modules/film/deltas/xtra-400-crystal-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "f8e39a4f698a891c20aec8768c1ae5d52cf81043e37c3655b320c19a5db6742a",
+      "public_sha256": "f8e39a4f698a891c20aec8768c1ae5d52cf81043e37c3655b320c19a5db6742a",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/grkit-ektachrome-e100-v1/original-effect.json",
+      "path": "modules/film/effects/ektachrome-e100-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "fcc35580b2d8be0c062abce9ce65885aaab14c2dc6e0116cddb7770f836ba88c",
+      "public_sha256": "fcc35580b2d8be0c062abce9ce65885aaab14c2dc6e0116cddb7770f836ba88c",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/grkit-kodachrome-64-v1/original-effect.json",
+      "path": "modules/film/effects/kodachrome-64-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "2ee4da0620d03fcaf83b112cbdf6203ca095f684f5998ac656e3b4e35a9e3537",
+      "public_sha256": "2ee4da0620d03fcaf83b112cbdf6203ca095f684f5998ac656e3b4e35a9e3537",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/targets/grkit-velvia-100-v1/original-effect.json",
+      "path": "modules/film/effects/velvia-100-v1.json",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "ad7739384ab4a20f1ced165a3d5dc523a163eedce94b14ed7c3d7543a9fec325",
+      "public_sha256": "ad7739384ab4a20f1ced165a3d5dc523a163eedce94b14ed7c3d7543a9fec325",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/reference_color.py",
+      "path": "modules/film/frame800t.py",
+      "license": "GPL-2.0-only",
+      "original_sha256": "ab9c82ce272d8c486e25e1f02d05a430c9d87446e65b38b3be59e4edf86756ee",
+      "public_sha256": "ab9c82ce272d8c486e25e1f02d05a430c9d87446e65b38b3be59e4edf86756ee",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/gr2-m10-portability-20261028/film-layer/source-targets/grkit_reference.py",
+      "path": "modules/film/grkit.py",
+      "license": "MIT",
+      "original_sha256": "b163f51e98075aac2dfec7e5d2196db31aabf8870a1cdedb3ea3e6befa20699b",
+      "public_sha256": "6d5b5deb9e9942440cb468b7a7cbe6edfc0b9b725a2714b1c515486cf4118332",
+      "transformation": "Preserve exact math/class/function blocks and the required INV601=inverse(BT601) module initializer in source order; remove local acquisition/Git/CLI routines and unused subprocess/time imports. Explicit local gamma supplied by release runner."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/CHANGELOG.txt",
+      "path": "modules/film/licenses/CHANGELOG.txt",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "1cb1a385ab027f5ed0e9f579a355f8e5f08f8d4d3f21cad73e52846511f02262",
+      "public_sha256": "1cb1a385ab027f5ed0e9f579a355f8e5f08f8d4d3f21cad73e52846511f02262",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/GRKIT_CODE_LICENSE.txt",
+      "path": "modules/film/licenses/GRKIT_CODE_LICENSE.txt",
+      "license": "MIT",
+      "original_sha256": "1f1852ac5a34cc94b6167c83b1d04ff5d7485e0ce09f4b2613a57b6ec5085308",
+      "public_sha256": "1f1852ac5a34cc94b6167c83b1d04ff5d7485e0ce09f4b2613a57b6ec5085308",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/GRKIT_EFFECT_NOTICE.md",
+      "path": "modules/film/licenses/GRKIT_EFFECT_NOTICE.md",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "225248af411413eb1ee2dcbbe939aef876a2cf091ad04d4b7d1092dd64575aa0",
+      "public_sha256": "225248af411413eb1ee2dcbbe939aef876a2cf091ad04d4b7d1092dd64575aa0",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "path": "modules/film/licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "license": "MIT",
+      "original_sha256": "3cdc90b3e7727be6e5930102fadeaf35cf3d3bd7c492b90d6d16fb9ad8c3a1bd",
+      "public_sha256": "3cdc90b3e7727be6e5930102fadeaf35cf3d3bd7c492b90d6d16fb9ad8c3a1bd",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/SPEKTRAFILM_LICENSE.txt",
+      "path": "modules/film/licenses/SPEKTRAFILM_LICENSE.txt",
+      "license": "CC-BY-SA-4.0",
+      "original_sha256": "76d629501783ae52e8d63aee1e054c1e1a9713b9fe7d36fb306e25b1d14b24e9",
+      "public_sha256": "76d629501783ae52e8d63aee1e054c1e1a9713b9fe7d36fb306e25b1d14b24e9",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/licenses/T3MUJINPACK_LICENSE.txt",
+      "path": "modules/film/licenses/T3MUJINPACK_LICENSE.txt",
+      "license": "MIT",
+      "original_sha256": "b1a3f6e97b17b4532ff92c34d6db4b1ad8edd3317096389e7617234d8221a576",
+      "public_sha256": "b1a3f6e97b17b4532ff92c34d6db4b1ad8edd3317096389e7617234d8221a576",
+      "transformation": "Unmodified accepted source."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/catalog.json",
+      "path": "modules/film/recipe_catalog.json",
+      "license": "MIT",
+      "original_sha256": "cb1587da144a0d1c1f2a1822aa972381c6eb493df5191de774454087bed88a57",
+      "public_sha256": "10509b3b0374e726b77fcfe2540d73c6d432aebd7c7e14df7fdb98abf36da911",
+      "transformation": "Retain source/effect hashes/licenses/contracts; change runtime dependencies to portable bundled delta/engine/notice paths. Original definition path retained as provenance only; gamma explicitly local."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-filter-backend-20261028/unified-style-translation-20261029/recipes/engine.py",
+      "path": "modules/film/recipe_engine.py",
+      "license": "MIT",
+      "original_sha256": "284e015a6ed7a9e8a9234225ff6ca26d1a2f62d04cc2d4971ec4a8bdcdef665f",
+      "public_sha256": "e150d67bf5e66ba4b7720ebe7b455f8930173858564b5271203afcd55a92e24e",
+      "transformation": "Exact engine prefix through recipe_delta, including INV601/FLAT601 initializers. Omit workspace-specific loader/SourceAdapter; public runner checks vendored deltas and user-local exact gamma."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-gui-id-layout-fix-20261029/source/closed_owner.c",
+      "path": "modules/framing/closed_owner.c",
+      "license": "MIT",
+      "original_sha256": "4dc7b5320be80b09d7a12f855c84d3aa281ccd65d6b3eca5240a52246579a7cf",
+      "public_sha256": "4dc7b5320be80b09d7a12f855c84d3aa281ccd65d6b3eca5240a52246579a7cf",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/liveview-framing-source/src/lvf.c",
+      "path": "modules/framing/lvf.c",
+      "license": "MIT",
+      "original_sha256": "26a847f12c78a3d77e1f537baf0876a3ff2aa95425b6e3c0a0903fda6e62fe1d",
+      "public_sha256": "26a847f12c78a3d77e1f537baf0876a3ff2aa95425b6e3c0a0903fda6e62fe1d",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/liveview-framing-source/include/lvf.h",
+      "path": "modules/framing/lvf.h",
+      "license": "MIT",
+      "original_sha256": "5a40f203f51d127bd15026240be80384c778981a73e88c4cc19205a5ccb18424",
+      "public_sha256": "5a40f203f51d127bd15026240be80384c778981a73e88c4cc19205a5ccb18424",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-gui-id-layout-fix-20261029/source/m10_gui.h",
+      "path": "modules/framing/m10_gui.h",
+      "license": "MIT",
+      "original_sha256": "f160d0af5f410a1e2b4de949711c0394d40da12db0f320621bd39767c90bb1c4",
+      "public_sha256": "f160d0af5f410a1e2b4de949711c0394d40da12db0f320621bd39767c90bb1c4",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-gui-id-layout-fix-20261029/source/m10_gui_backend.c",
+      "path": "modules/framing/m10_gui_backend.c",
+      "license": "MIT",
+      "original_sha256": "9a6378baf516abe48f53b9e604ee9ad7e861633a92fbd7874964891939f1fdfc",
+      "public_sha256": "9a6378baf516abe48f53b9e604ee9ad7e861633a92fbd7874964891939f1fdfc",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-gui-id-layout-fix-20261029/source/m10_gui_native.h",
+      "path": "modules/framing/m10_gui_native.h",
+      "license": "MIT",
+      "original_sha256": "eae0dbe7729ad47a238bff7f91ad071d90cfeb409432797964de9becab65f2a8",
+      "public_sha256": "eae0dbe7729ad47a238bff7f91ad071d90cfeb409432797964de9becab65f2a8",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/unfinished-feature-audit-20261028/m10-gui-id-layout-fix-20261029/source/m10_gui_profile.c",
+      "path": "modules/framing/m10_gui_profile.c",
+      "license": "MIT",
+      "original_sha256": "d775ce9aced1b8ac67274b16eb7292221f15dfb8748aef9bf81b55726f01263c",
+      "public_sha256": "d775ce9aced1b8ac67274b16eb7292221f15dfb8748aef9bf81b55726f01263c",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/component-update-recovery-20261028/touch-caller-target-build-20261029/adaptation/caller_runtime.c",
+      "path": "modules/touch/caller_runtime.c",
+      "license": "MIT",
+      "original_sha256": "05127c21a1f35d1becd70fddd9fdf86bd3d07a72b36eeb98616e9ea0a14fdf62",
+      "public_sha256": "05127c21a1f35d1becd70fddd9fdf86bd3d07a72b36eeb98616e9ea0a14fdf62",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/component-update-recovery-20261028/touch-caller-runtime/caller_runtime.h",
+      "path": "modules/touch/caller_runtime.h",
+      "license": "MIT",
+      "original_sha256": "fa9e5ba907db0f5574360ebcff7a14b202d7943cf3fefeba8d42be9f1027f18a",
+      "public_sha256": "fa9e5ba907db0f5574360ebcff7a14b202d7943cf3fefeba8d42be9f1027f18a",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/component-update-recovery-20261028/touch-caller-runtime/caller_runtime_internal.h",
+      "path": "modules/touch/caller_runtime_internal.h",
+      "license": "MIT",
+      "original_sha256": "e3e9f00a1d4957b9fe4952b63b784550f826a2056383ffcae529ff16c381a387",
+      "public_sha256": "e3e9f00a1d4957b9fe4952b63b784550f826a2056383ffcae529ff16c381a387",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/component-update-recovery-20261028/touch-caller-runtime/m10_caller_runtime.c",
+      "path": "modules/touch/m10_caller_runtime.c",
+      "license": "MIT",
+      "original_sha256": "847cdc22406ac43048d793d4fb6e30de28459324328fcb863f47eb40f05fd7fa",
+      "public_sha256": "847cdc22406ac43048d793d4fb6e30de28459324328fcb863f47eb40f05fd7fa",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-hardware-upgrade-20261028/service-touch-repair/implementation/m10_native.c",
+      "path": "modules/touch/m10_native.c",
+      "license": "MIT",
+      "original_sha256": "7cf004c1cbd8f207924f660c835a75e09c2ef516ed9118c7a1f93a770fad7c28",
+      "public_sha256": "7cf004c1cbd8f207924f660c835a75e09c2ef516ed9118c7a1f93a770fad7c28",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-hardware-upgrade-20261028/service-touch-repair/implementation/m10_native.h",
+      "path": "modules/touch/m10_native.h",
+      "license": "MIT",
+      "original_sha256": "12eb3e1fd1bb14af90d2bfe12216ad9a499baec8e5f870be569cc9fab707bf23",
+      "public_sha256": "12eb3e1fd1bb14af90d2bfe12216ad9a499baec8e5f870be569cc9fab707bf23",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-hardware-upgrade-20261028/service-touch-repair/implementation/touch_repair.c",
+      "path": "modules/touch/touch_repair.c",
+      "license": "MIT",
+      "original_sha256": "38fffbbb11808bd0c52fa7bc11ee110ad11f591b9252ceab08418c1f0fe6597e",
+      "public_sha256": "38fffbbb11808bd0c52fa7bc11ee110ad11f591b9252ceab08418c1f0fe6597e",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/m10-hardware-upgrade-20261028/service-touch-repair/implementation/touch_repair.h",
+      "path": "modules/touch/touch_repair.h",
+      "license": "MIT",
+      "original_sha256": "95790cf914d85f9f0f4ef732750ddb285930e991601b69cd3dabd5d1bc648df2",
+      "public_sha256": "95790cf914d85f9f0f4ef732750ddb285930e991601b69cd3dabd5d1bc648df2",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/host/wb_metadata.c",
+      "path": "modules/wb/host/wb_metadata.c",
+      "license": "MIT",
+      "original_sha256": "bf9a011e087d9f2781522d94b3a763c5e609d5965311b46df3b053fa6b789839",
+      "public_sha256": "bf9a011e087d9f2781522d94b3a763c5e609d5965311b46df3b053fa6b789839",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/host/wb_metadata.h",
+      "path": "modules/wb/host/wb_metadata.h",
+      "license": "MIT",
+      "original_sha256": "884b6b02243133a3c4d44055c2c970828ad49e85bc389b1427c30121bd1d55cd",
+      "public_sha256": "884b6b02243133a3c4d44055c2c970828ad49e85bc389b1427c30121bd1d55cd",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/target-build-audit/src/profile_m10_4263610.c",
+      "path": "modules/wb/native/profile_m10_4263610.c",
+      "license": "MIT",
+      "original_sha256": "9e2c0ff6c1ec95b374d0d56454037990c301013b3a8e85018a261110365d5037",
+      "public_sha256": "9e2c0ff6c1ec95b374d0d56454037990c301013b3a8e85018a261110365d5037",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/capture-bound-adapter/src/wb_capture_adapter.c",
+      "path": "modules/wb/native/wb_capture_adapter.c",
+      "license": "MIT",
+      "original_sha256": "a191815e0ddc12fe7f3c2a761c92a11fcfc976ce2ef5358ced0ba463aae1f55f",
+      "public_sha256": "a191815e0ddc12fe7f3c2a761c92a11fcfc976ce2ef5358ced0ba463aae1f55f",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/capture-bound-adapter/include/wb_capture_adapter.h",
+      "path": "modules/wb/native/wb_capture_adapter.h",
+      "license": "MIT",
+      "original_sha256": "309133269818ba29de6293001c08f1f4fc8da706e77e2754216c3c3df92e02ec",
+      "public_sha256": "309133269818ba29de6293001c08f1f4fc8da706e77e2754216c3c3df92e02ec",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/capture-purpose-admission/src/wb_capture_purpose.c",
+      "path": "modules/wb/native/wb_capture_purpose.c",
+      "license": "MIT",
+      "original_sha256": "a0b198bb6411ccd293eeca4a9320fd0795c90ce6a07a346fc0f159bd965d881b",
+      "public_sha256": "a0b198bb6411ccd293eeca4a9320fd0795c90ce6a07a346fc0f159bd965d881b",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/capture-purpose-admission/include/wb_capture_purpose.h",
+      "path": "modules/wb/native/wb_capture_purpose.h",
+      "license": "MIT",
+      "original_sha256": "53a296d7bca7da9d6e0abaff9d2c3a92d33cf7daad5729c0a3a716c97136c2c5",
+      "public_sha256": "53a296d7bca7da9d6e0abaff9d2c3a92d33cf7daad5729c0a3a716c97136c2c5",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/target-build-audit/src/wb_core.c",
+      "path": "modules/wb/native/wb_core.c",
+      "license": "MIT",
+      "original_sha256": "10ac709bb80375f2800a7d6ce33b6d932b5b9f3fbb33afcf4bb6d729ed7de247",
+      "public_sha256": "10ac709bb80375f2800a7d6ce33b6d932b5b9f3fbb33afcf4bb6d729ed7de247",
+      "transformation": "Unmodified bytes; portable destination path only."
+    },
+    {
+      "origin": "sandbox/output/leica-m10p/wb-metadata-implementation-20261028/target-build-audit/include/wb_target.h",
+      "path": "modules/wb/native/wb_target.h",
+      "license": "MIT",
+      "original_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
+      "public_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
+      "transformation": "Unmodified bytes; portable destination path only."
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Leica development source selection v1",
+  "description": "Python validator additionally enforces enabled/default membership, normal inclusion and bounded positive rational gains. This schema grants no installation authority.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "baseline",
+    "features"
+  ],
+  "properties": {
+    "schema": {
+      "const": "leica.source-selection/v1"
+    },
+    "baseline": {
+      "const": "M10-4.26.36.10"
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "touch",
+        "reported_serial",
+        "styles",
+        "frame_guides",
+        "jpeg_crop",
+        "wb",
+        "low_noise_shutter"
+      ],
+      "properties": {
+        "touch": {
+          "type": "boolean"
+        },
+        "reported_serial": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[0-9]{7}$"
+            }
+          ]
+        },
+        "styles": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "default"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "normal",
+                  "asc_classic",
+                  "asc_contemporary",
+                  "cinestill800t",
+                  "velvia100",
+                  "e100",
+                  "kodachrome64",
+                  "aerocolor-iv-v1",
+                  "double-x-5222-mono-v1",
+                  "ektar-100-edge-v1",
+                  "eterna-500t-3523xd-v1",
+                  "gold-200-premier-v1",
+                  "hp5-plus-400-mono-v1",
+                  "instax-v1",
+                  "portra-400-endura-v1",
+                  "portra-800-push2-v1",
+                  "pro-400h-crystal-v1",
+                  "red-filter-mono-v1",
+                  "trix-400-mono-v1",
+                  "vision3-250d-2383-v1",
+                  "vision3-500t-supra-v1",
+                  "xtra-400-crystal-v1"
+                ]
+              }
+            },
+            "default": {
+              "enum": [
+                "normal",
+                "asc_classic",
+                "asc_contemporary",
+                "cinestill800t",
+                "velvia100",
+                "e100",
+                "kodachrome64",
+                "aerocolor-iv-v1",
+                "double-x-5222-mono-v1",
+                "ektar-100-edge-v1",
+                "eterna-500t-3523xd-v1",
+                "gold-200-premier-v1",
+                "hp5-plus-400-mono-v1",
+                "instax-v1",
+                "portra-400-endura-v1",
+                "portra-800-push2-v1",
+                "pro-400h-crystal-v1",
+                "red-filter-mono-v1",
+                "trix-400-mono-v1",
+                "vision3-250d-2383-v1",
+                "vision3-500t-supra-v1",
+                "xtra-400-crystal-v1"
+              ]
+            }
+          }
+        },
+        "frame_guides": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "preset"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "preset": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 7
+            }
+          }
+        },
+        "jpeg_crop": {
+          "type": "boolean"
+        },
+        "wb": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "gains"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "gains": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "maxLength": 32,
+                "pattern": "^[0-9]+(?:\\.[0-9]+|/[0-9]+)?$"
+              }
+            }
+          }
+        },
+        "low_noise_shutter": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

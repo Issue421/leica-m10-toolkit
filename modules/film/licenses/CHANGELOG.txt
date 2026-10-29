@@ -1,0 +1,36 @@
+Changes to third-party LUTs (as asked by SPEKTRAFILM_LICENSE.txt)
+
+No LUT, profile, or rendered LUT output is included in this repository. Each effect encodes the
+look of one LUT as effect parameters of the GR cameras: a 3 x 3 look matrix, optional hue
+sectors, three tone curves, and an optional 3 x 3 post-curve matrix. `grkit effects import` fits
+them to the LUT output on a gray ramp, a color chart, and natural colors, and keeps colors
+brightening with exposure as the LUT does.
+
+spektrafilm LUTs (Andrea Volpato, https://github.com/andreavolpato/spektrafilm, spektrafilm 0.3.4,
+git 3bb2c2d2801ff68b92019cf1dbcbb133d60832bc, CC BY-SA 4.0):
+- Built with spektrafilm-lut: input Panasonic V-Log / V-Gamut, output sRGB, 33^3, default settings.
+- Slide films (Kodachrome 64, Velvia 100, Ektachrome E100) are scanned directly
+  (`io.scan_film`) instead of printed, because the LUT builder always prints and the print
+  stocks are negative-working.
+- Vision3 500T (on Supra Endura paper) is built with the scanner black and white correction on,
+  at the default levels, as a lab scan of the print sets them.
+  spektrafilm-lut turns the correction off for every LUT. Its references are fixed (the film base
+  and the film's maximum density), so the LUT holds it.
+- The "# Created:" header line is removed before the fit.
+- Fitted as above by GRKit contributors.
+
+Spectral Film LUT tables (Jan Lohse, https://github.com/JanLohse/spectral_film_lut, 0.18.13,
+git bcbcfc6861f49cc706dc5d00ea048e4853060aab, MIT):
+- Built with the library defaults: input Panasonic V-Log / V-Gamut, output sRGB, 33^3.
+- The red filter effect multiplies the Tri-X 400 sensitivity by the Kodak Wratten 25
+  transmission from the library's own data.
+- Double-X 5222 uses the library's 12-minute development of Kodak 5222 on grade 3 paper.
+- Fitted as above by GRKit contributors. The monochrome fits have identical matrix rows and
+  curves; GRKit marks them as monochrome.
+
+t3mujinpack HaldCLUT (João Almeida, https://github.com/t3mujin/t3mujinpack, git
+0b421f3e25209ed78253d1724a29cc6255c5e7fe, MIT):
+- HP5 Plus 400 is fitted with Standard input and +0.2 EV, so mid gray matches Standard.
+
+bake_spektrafilm.py and bake_spectral_film_lut.py reproduce the LUTs. manifest.json records the
+SHA-256 of each LUT that an effect was fitted from.

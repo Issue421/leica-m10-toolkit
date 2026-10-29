@@ -1,0 +1,1546 @@
+[
+  {
+    "id": "aerocolor-iv-v1",
+    "name": "Aerocolor IV",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "625e0c417012b4b994052d1c6f59ad081d5990d49f70891e347bdb6ea6595744",
+    "recipe": "deltas/aerocolor-iv-v1.json",
+    "recipe_sha256": "3b5e743870a59d56c4e70b83f398cb2a005ba58a4a73efe75e8612e0f4aedb2b",
+    "dependencies": [
+      "deltas/aerocolor-iv-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "aerocolor-iv-v1.cube",
+      "sha256": "7079fd3703de7046543b5fb75d74f241092b2d5596cbb74e70e84cc56d442978",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "e363e7e33f503a83237647c86a1f3691cd2ab497e277b5128e431a96aa019ed7",
+    "public_preview": {
+      "path": "preview/aerocolor-iv-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/aerocolor-iv-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "double-x-5222-mono-v1",
+    "name": "Double-X 5222",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": true,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "identity-post-from-site.rs:65",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "5e41d46d59993d40b727dac2412ee176bf97169c7a705fead4ca58834ccde322",
+    "recipe": "deltas/double-x-5222-mono-v1.json",
+    "recipe_sha256": "8c1de272fbcb712644a9d242bbf1ec7804405589e3ff0452d87cdbfd295d5112",
+    "dependencies": [
+      "deltas/double-x-5222-mono-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "double-x-5222-mono-v1.cube",
+      "sha256": "f11b7c969090a42443995b254a2436cc8ced051ea29f5a6c54ca0920b60647be",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "ee0d398eaa69d7f5169f9e9ccfa584d8e58d66351d98632a75472666e5f5297d",
+    "public_preview": {
+      "path": "preview/double-x-5222-mono-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/double-x-5222-mono-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "ektachrome-e100-v1",
+    "name": "Ektachrome E100",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "fcc35580b2d8be0c062abce9ce65885aaab14c2dc6e0116cddb7770f836ba88c",
+    "recipe": "deltas/ektachrome-e100-v1.json",
+    "recipe_sha256": "51c03a360a7d87968c9a5a8b4b9e976135e2ebd136a139ddf1f2d2510cd65549",
+    "dependencies": [
+      "deltas/ektachrome-e100-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "ektachrome-e100-v1.cube",
+      "sha256": "29d52653af90640a72d9406d67008844605723f07e29a531752e767a93685d58",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "12788e7b92a31fafe913c36b37430a2d395e24085cc20e7066b87ea87c50176d",
+    "public_preview": {
+      "path": "preview/ektachrome-e100-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "first-three accepted reference reused by targeted samples; no full preview regeneration"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/ektachrome-e100-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "ektar-100-edge-v1",
+    "name": "Ektar 100",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "991cb970372c2a0f7fc344ab549c9ce71fe089a9fe34f007d4de55a4b9b5cc4c",
+    "recipe": "deltas/ektar-100-edge-v1.json",
+    "recipe_sha256": "32789c6c020376a10907c2c343240a116fe3d8d6996543c04be6e45f82ba574f",
+    "dependencies": [
+      "deltas/ektar-100-edge-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "ektar-100-edge-v1.cube",
+      "sha256": "88413f2d769d5f2f06cc209b76f63a9ac0fb267d4dbf6f4d8d850a9fcd310f52",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "f8856301ce902841751b9928fd92ca1d568a5529111d1a7f7d07cb245ab35060",
+    "public_preview": {
+      "path": "preview/ektar-100-edge-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/ektar-100-edge-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "eterna-500t-3523xd-v1",
+    "name": "Eterna 500T",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "dcfbbc9c46ea216c9eba7a6088a487b162e284206725b85170acd9937ddb2e01",
+    "recipe": "deltas/eterna-500t-3523xd-v1.json",
+    "recipe_sha256": "13da56494c3c77b436ebc026c51d9012c452f358d9a325e3e55a860f3ef3a6a4",
+    "dependencies": [
+      "deltas/eterna-500t-3523xd-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "eterna-500t-3523xd-v1.cube",
+      "sha256": "43fdc9c2b9815fa9717c80e8f0292e789e2d4be88a4a3cc567d1290d0f158a7b",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "98d0fe1e8d4707879955520f01bbaea9f8a3416422fc07e8dee7a6d3ff67c2e0",
+    "public_preview": {
+      "path": "preview/eterna-500t-3523xd-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/eterna-500t-3523xd-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "gold-200-premier-v1",
+    "name": "Gold 200",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "8706e6341a5059d4c6f1905afe3bee5185b8aafb9695e8da0befec154c201fca",
+    "recipe": "deltas/gold-200-premier-v1.json",
+    "recipe_sha256": "6bdf5e3d32f6e584e1242b9c8ef851be7a60407f2a20d4cf26e5629cd1a35f87",
+    "dependencies": [
+      "deltas/gold-200-premier-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "gold-200-premier-v1.cube",
+      "sha256": "d75eb39993bd120b9e587c014135e02608fcb908dc29bcb62dbcfec716d7c004",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "0857b705306863d01ff5be03d25af247f5a9639aed1bcca451aa22813aef25e0",
+    "public_preview": {
+      "path": "preview/gold-200-premier-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/gold-200-premier-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "hp5-plus-400-mono-v1",
+    "name": "HP5 Plus 400",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": true,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "identity-post-from-site.rs:65",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "t3mujinpack",
+      "creator": "João Almeida",
+      "source_repository": "https://github.com/t3mujin/t3mujinpack",
+      "source_revision": "0b421f3e25209ed78253d1724a29cc6255c5e7fe",
+      "notice": "licenses/T3MUJINPACK_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "a12181ed3f6f6b8d12b8110486253e88c66777016fc645e01c5c503db96c498e",
+    "recipe": "deltas/hp5-plus-400-mono-v1.json",
+    "recipe_sha256": "d936961a319b1fe6008fa80abc9a6c45be87bd1c6a155ec33ea8efe8e12e8612",
+    "dependencies": [
+      "deltas/hp5-plus-400-mono-v1.json",
+      "recipe_engine.py",
+      "licenses/T3MUJINPACK_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "hp5-plus-400-mono-v1.png",
+      "sha256": "753f05a4e373d4cd196624daf472ad370894ca5659090c5c02606fd8805ec1d1",
+      "bytes_available": false,
+      "fit_input_encoding": "standard",
+      "fit_exposure": 0.2
+    },
+    "published_grf_sha256_identity_only": "a1d263fb984f113f2afeb68f95c6135a7d4611119b0048826b161cd90b3cae47",
+    "public_preview": {
+      "path": "preview/hp5-plus-400-mono-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/hp5-plus-400-mono-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "instax-v1",
+    "name": "Instax",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "cf80d0fc10760635a1dc5ac8590d102845cdee4680b8ff12547c14dc94c8b4e7",
+    "recipe": "deltas/instax-v1.json",
+    "recipe_sha256": "9163af65109406eacb89062f2bbc2ad14e2fa25f77d91cb7d4d51ec34b91bff6",
+    "dependencies": [
+      "deltas/instax-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "instax-v1.cube",
+      "sha256": "081b124a966c37f77f26e78e9923b5894d08c8551e08cc67cdfe3e5537ee70f8",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "d06a9260d3ca575d3f88156876c97eecdb868b2a37c32b6d4eb75b5b2cd897d9",
+    "public_preview": {
+      "path": "preview/instax-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/instax-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "kodachrome-64-v1",
+    "name": "Kodachrome 64",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "2ee4da0620d03fcaf83b112cbdf6203ca095f684f5998ac656e3b4e35a9e3537",
+    "recipe": "deltas/kodachrome-64-v1.json",
+    "recipe_sha256": "849b806a7ae032d89d509e9c5d239f7980735f52532c6ce7b9ec3dd97001c48a",
+    "dependencies": [
+      "deltas/kodachrome-64-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "kodachrome-64-v1.cube",
+      "sha256": "8e16cab3018eee39cd66cded8df0fef7aeff6f4aff92379d490527e299e8bae2",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "3114f75e97f91966aa77d09347a72a00052a0b9c3ba053dc1ab1778f73b30cd8",
+    "public_preview": {
+      "path": "preview/kodachrome-64-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "first-three accepted reference reused by targeted samples; no full preview regeneration"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/kodachrome-64-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "portra-400-endura-v1",
+    "name": "Portra 400",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "b6d8a65c22e276d0ba8ca1aa247462b9b88c160eebdd7fc52076eac683b30308",
+    "recipe": "deltas/portra-400-endura-v1.json",
+    "recipe_sha256": "19f49af3a08ad68c287087f811aa6f5604e69429720a7b667568eeb94930c35f",
+    "dependencies": [
+      "deltas/portra-400-endura-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "portra-400-endura-v1.cube",
+      "sha256": "e2d43bebfdcc0744e54d95f88bdf32a4a0505b358db04353af72d2ef1c605682",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "16a14d40e7877d467c236b9068b296fc9985671df65741d99214ab20098f166d",
+    "public_preview": {
+      "path": "preview/portra-400-endura-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/portra-400-endura-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "portra-800-push2-v1",
+    "name": "Portra 800 +2",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "e4c3c1044b67bc126f004ef9b3336e70db9deaf715b77d15c2e19ef48b77971d",
+    "recipe": "deltas/portra-800-push2-v1.json",
+    "recipe_sha256": "661815c0d82a15821f827506a2c8d43e097ac3aab2304c71bc8ab5480b3a2379",
+    "dependencies": [
+      "deltas/portra-800-push2-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "portra-800-push2-v1.cube",
+      "sha256": "b00d80ceb876c28912d619f2a6f6ad9dc1cf7d58cb0e729738039793174ba800",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "36205afe5c2492b9f10ed36b85a3ce0ff7828e4d222c8395e66c91214700fe3d",
+    "public_preview": {
+      "path": "preview/portra-800-push2-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/portra-800-push2-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "pro-400h-crystal-v1",
+    "name": "Pro 400H",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "bc2f464059285b182538f3be6a11073ae71fe18cfc4ef9f922c90c03de7588cd",
+    "recipe": "deltas/pro-400h-crystal-v1.json",
+    "recipe_sha256": "deef23eec240aaa9660d22ffacaad47611db8632db09873cf05f339897e6852c",
+    "dependencies": [
+      "deltas/pro-400h-crystal-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "pro-400h-crystal-v1.cube",
+      "sha256": "66361c619cbc20d8ff1622359947a72e229d3a2ef029b57f54084d9c691bf729",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "26388e602c20bc2d0a6f71c4ed09a91c7f16e69fbd7d66df6d38463081bb6d9d",
+    "public_preview": {
+      "path": "preview/pro-400h-crystal-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/pro-400h-crystal-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "red-filter-mono-v1",
+    "name": "Tri-X 400 Red",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": true,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "identity-post-from-site.rs:65",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "19133504768c79f8f4f437b9392dc4caabfebe95708ace143ca449594962d270",
+    "recipe": "deltas/red-filter-mono-v1.json",
+    "recipe_sha256": "5a9247006e28003cc26140ce5b05bd8cfade03c0bc7d6ef8530c70c8d013a175",
+    "dependencies": [
+      "deltas/red-filter-mono-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "red-filter-mono-v1.cube",
+      "sha256": "fb92f310bd4695e53f4c615bf37da594b6f47fdea54db7bee638b945981733af",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "a0ca8d8f5e4bbe48d0e765d0b55baca6badaa26883414c7d378a37e7b2949c7a",
+    "public_preview": {
+      "path": "preview/red-filter-mono-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/red-filter-mono-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "trix-400-mono-v1",
+    "name": "Tri-X 400",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": true,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "identity-post-from-site.rs:65",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "MIT",
+      "engine_code": "MIT",
+      "source_family": "spectral_film_lut",
+      "creator": "Jan Lohse",
+      "source_repository": "https://github.com/JanLohse/spectral_film_lut",
+      "source_revision": "bcbcfc6861f49cc706dc5d00ea048e4853060aab",
+      "notice": "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "866a87449ea0336e9892a751318f4916477005e675c14dd4c999c533a5af9679",
+    "recipe": "deltas/trix-400-mono-v1.json",
+    "recipe_sha256": "a1282465a1078f913c9b1db55248c52ac3efefe4ba4947e111135448e0910225",
+    "dependencies": [
+      "deltas/trix-400-mono-v1.json",
+      "recipe_engine.py",
+      "licenses/SPECTRAL_FILM_LUT_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "trix-400-mono-v1.cube",
+      "sha256": "b618b9c36de455fa86c31018bde5763e2f17726db5bcf9140a2c6bb410d56910",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "7a76ac6be5b0faaea41c165e2f0b93cbe5d616e07ab2973c73e8291d3781163b",
+    "public_preview": {
+      "path": "preview/trix-400-mono-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/trix-400-mono-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "velvia-100-v1",
+    "name": "Velvia 100",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "ad7739384ab4a20f1ced165a3d5dc523a163eedce94b14ed7c3d7543a9fec325",
+    "recipe": "deltas/velvia-100-v1.json",
+    "recipe_sha256": "6de3542aa206348aebf1322e191155cc5c9fe688c17acfd833c79b1b1c187fae",
+    "dependencies": [
+      "deltas/velvia-100-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "velvia-100-v1.cube",
+      "sha256": "49c8b99b4edfc901ea3ec3a364d939947da492c934bb96067c6484d1f5154b52",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "b1f2fd8c57c8b3fc7977cfa6af32ae997068e5cf51fd2855cf7b769f955d246d",
+    "public_preview": {
+      "path": "preview/velvia-100-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "first-three accepted reference reused by targeted samples; no full preview regeneration"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/velvia-100-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "vision3-250d-2383-v1",
+    "name": "Vision3 250D",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "8271ac6706fd107d7a9b15a42741fd743581bec47cf4956a416d0b959b930cae",
+    "recipe": "deltas/vision3-250d-2383-v1.json",
+    "recipe_sha256": "a8b1644d96c01bb4ca11814fa51a3d3b3757b2cb7e246d823febbae4103b340e",
+    "dependencies": [
+      "deltas/vision3-250d-2383-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "vision3-250d-2383-v1.cube",
+      "sha256": "6deeaf3c1f84f4ccb0e3005dc722e127a507534b08b82ea3cf5d55945eaf3684",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "9b6335c2aeae2ff969f8e7f73f238fae0f841963224bbb9e056f29b74a524892",
+    "public_preview": {
+      "path": "preview/vision3-250d-2383-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/vision3-250d-2383-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "vision3-500t-supra-v1",
+    "name": "Vision3 500T",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "f5ecc82b2e89965186c31c1456a596ad00daef5ce6738d169d1de53bdc7ffe72",
+    "recipe": "deltas/vision3-500t-supra-v1.json",
+    "recipe_sha256": "8ef85bbf43f16c00531395e56de5e69a2505be2a0f01063be2ffbb890e00670c",
+    "dependencies": [
+      "deltas/vision3-500t-supra-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "vision3-500t-supra-v1.cube",
+      "sha256": "f7a319e548e8e3cd5d932f7c16e5b4073fbf624ab2efc0b2261053ead83cc665",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "dc8ec695932aad3f6e80df21806385e10144741e72c47e4a1cd3aa68673c9a09",
+    "public_preview": {
+      "path": "preview/vision3-500t-supra-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/vision3-500t-supra-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  },
+  {
+    "id": "xtra-400-crystal-v1",
+    "name": "Superia 400",
+    "backend": "source-recipe",
+    "source_completeness": "complete",
+    "renderable": true,
+    "source_kind": "GRKit fitted native software parameters; original LUT absent",
+    "monochrome": false,
+    "device_status": "blocked",
+    "device_blockers": [
+      "M10 device transform/capture integration is not established",
+      "public base-gamma table has no separate declared license"
+    ],
+    "input_contract": {
+      "domain": "scene-linear-srgb-primaries-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "finite": true,
+      "encoding": "linear",
+      "white": "D65 sRGB primaries"
+    },
+    "output_contract": {
+      "domain": "grkit-model-display-rgb-code-unit-v1",
+      "shape": "N x 3",
+      "range": [
+        0,
+        1
+      ],
+      "encoding": "display RGB code; base gamma + effect curves already applied",
+      "apply_another_oetf": false
+    },
+    "stages": [
+      "front-Q13-matrix",
+      "hue-sectors",
+      "pinned-Standard-base-gamma",
+      "per-channel-curve",
+      "post-Q13-matrix",
+      "BT601-CSY",
+      "display-clip"
+    ],
+    "licensing": {
+      "recipe_data": "CC-BY-SA-4.0",
+      "engine_code": "MIT",
+      "source_family": "spektrafilm",
+      "creator": "Andrea Volpato",
+      "source_repository": "https://github.com/andreavolpato/spektrafilm",
+      "source_revision": "3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+      "notice": "licenses/SPEKTRAFILM_LICENSE.txt",
+      "upstream_changes": "licenses/CHANGELOG.txt",
+      "grkit_notice": "licenses/GRKIT_EFFECT_NOTICE.md",
+      "base_gamma": "public GRKit catalog; no separate gamma-table license declared; not assigned MIT",
+      "original_lut_included": false
+    },
+    "fixed_revision": "cc9ff4e2a97962a47b4bd825d50e84988da5e70f",
+    "source_sha256": "6a8577e8527d206b159de5bfc1cae7815c8027c1055d3cdcfe7492747e21755b",
+    "recipe": "deltas/xtra-400-crystal-v1.json",
+    "recipe_sha256": "f8e39a4f698a891c20aec8768c1ae5d52cf81043e37c3655b320c19a5db6742a",
+    "dependencies": [
+      "deltas/xtra-400-crystal-v1.json",
+      "recipe_engine.py",
+      "licenses/SPEKTRAFILM_LICENSE.txt",
+      "licenses/GRKIT_CODE_LICENSE.txt",
+      "licenses/GRKIT_EFFECT_NOTICE.md",
+      "licenses/CHANGELOG.txt"
+    ],
+    "source_lut_identity": {
+      "filename": "xtra-400-crystal-v1.cube",
+      "sha256": "9305c01ab20062fa09572fb6d29ea0769183ff1c2184654578afb8943b5eafae",
+      "bytes_available": false,
+      "fit_input_encoding": "vlog",
+      "fit_exposure": 0.0
+    },
+    "published_grf_sha256_identity_only": "569b78d0bef6046ffdb284787061008bb35cf6721b1b63b9e13cbfa340d79fb8",
+    "public_preview": {
+      "path": "preview/xtra-400-crystal-v1.lut",
+      "new_byte_equality_claim": false,
+      "evidence": "preview bytes unavailable here; fixed-source Rust mathematics oracle only"
+    },
+    "physical_film_equivalence_claim": false,
+    "physical_camera_match_claim": false,
+    "source_file_origin": "sandbox/inputs/gr2-portability-20261028/grkit/effects/xtra-400-crystal-v1/effect.json",
+    "gamma_input": "user local exact BE16 SHA256; not distributed"
+  }
+]

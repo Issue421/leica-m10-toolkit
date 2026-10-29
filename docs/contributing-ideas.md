@@ -99,11 +99,17 @@ claims cannot be checked by a reader at all.
 
 ### B1. The XPan crop constants are not in the code — make them checkable
 
-`docs/status.md` §1.1 states the crop math (`+896×c0c`, `+448×c0e`, `cfg[+0x12]`,
-`cfg[+0x14]`, baseline 2224 / 2208), and `ROADMAP.md` describes a 6016 × 2224 frame.
-**No file in this repository contains `2224`, `2208`, `6016`, `896`, `0xc0c` or
-`0xc0e`.** The numbers exist only in documentation. `modules/framing/` is live-view
-frameline geometry on a 3600 × 2400 logical surface — a different thing.
+`docs/status.md` §1.1 states the crop math (`+896×cfg[+0x0c]` for the Y plane,
+`+448×cfg[+0x0e]` for Cb/Cr, `cfg[+0x12]` = `used_h`, baseline 2224 / 2208), and
+`ROADMAP.md` describes a 6016 × 2224 frame. **No file in this repository contains
+`2224`, `2208`, `6016`, `896`, `0xc0c` or `0xc0e`.** The numbers exist only in
+documentation. `modules/framing/` is live-view frameline geometry on a 3600 × 2400
+logical surface — a different thing.
+
+Note that the width comes from `cfg[+0x10]` (`used_w`, 6016), **not** from
+`cfg[+0x14]`: `+0x14` is the 1-byte `ycc_smpl` chroma-sampling selector. An
+earlier revision of this task, and of `docs/status.md` §1.1, said `cfg[+0x14]`;
+that was wrong.
 
 - **Entry point**: `docs/status.md` §1.1, `ROADMAP.md` (XPan section), `modules/framing/lvf.c`
 - **Task**: add a pure-arithmetic module (no I/O, no camera) that takes a sensor

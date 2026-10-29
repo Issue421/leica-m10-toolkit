@@ -743,7 +743,7 @@
       "path": "docs/status.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "51df982a3fe798a121191536bcef97bb7024139eb099bad5a8611bb53d0023b1",
+      "public_sha256": "9ddd83777a427c6ce4be6245292d1b7e272c7c7f76839bfcfcb9007faeb2a5ba",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -751,7 +751,7 @@
       "path": "docs/status.en.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "f2ed4d42f7221a7d381025a4e7904e38a61eca3af7ecbe228389efb88c30ecb9",
+      "public_sha256": "c72cd73a1566d058ce635774f99b94d3f8a9e81ae9c3b3e7c35d4cb8f810e391",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     }
   ]

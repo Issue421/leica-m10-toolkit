@@ -55,7 +55,7 @@
       "path": "README.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "17aa5c3fc23e43352f4cf62b439d8b8a26e8149b3e0f6bc4a2ef7d4da5f1b080",
+      "public_sha256": "5f2e1750e4ae155073c59e0e0de4b45015cb661f0bc732cad3a64b9f76ffe62e",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {

@@ -20,23 +20,22 @@ from leica_source.reference import run, compile_sources, MissingInput, prepare_a
 from leica_source.server import handler
 
 def selection(style='cinestill800t'):
-    c=copy.deepcopy(DEFAULT);f=c['features'];f.update(touch=True,reported_serial='7654321')
+    c=copy.deepcopy(DEFAULT);f=c['features'];f.update(touch=True)
     f['frame_guides']={'enabled':True,'preset':0};f['wb']={'enabled':True,'gains':['2','1','1/2']}
     f['styles']={'enabled':list(STYLES),'default':style};return c
 
 class Configuration(unittest.TestCase):
     def test_strict_invalid_inputs(self):
-        changes=[lambda c:c.update(qualified=True),lambda c:c.update(baseline='M10-P-5.26.35.51'),lambda c:c['features'].update(touch=1),lambda c:c['features'].update(reported_serial='１２３４５６７'),lambda c:c['features']['frame_guides'].update(preset=True),lambda c:c['features']['wb'].update(gains=['0','1','1']),lambda c:c['features']['wb'].update(gains=['1/0','1','1']),lambda c:c['features']['wb'].update(gains=['NaN','1','1']),lambda c:c['features']['styles'].update(default='unknown'),lambda c:c['features']['styles'].update(enabled=['normal','normal'])]
+        changes=[lambda c:c.update(qualified=True),lambda c:c.update(baseline='M10-P-5.26.35.51'),lambda c:c['features'].update(touch=1),lambda c:c['features']['frame_guides'].update(preset=True),lambda c:c['features']['wb'].update(gains=['0','1','1']),lambda c:c['features']['wb'].update(gains=['1/0','1','1']),lambda c:c['features']['wb'].update(gains=['NaN','1','1']),lambda c:c['features']['styles'].update(default='unknown'),lambda c:c['features']['styles'].update(enabled=['normal','normal'])]
         for mutate in changes:
             c=copy.deepcopy(DEFAULT);mutate(c)
             with self.subTest(c=c),self.assertRaises(ConfigError):validate(c)
         with self.assertRaises(ConfigError):strict_json('{"a":1,"a":2}')
         with self.assertRaises(ConfigError):strict_json('{"a":NaN}')
-    @unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','identity','framing','wb','asc','film')),'requires full source capability set')
+    @unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','framing','wb','asc','film')),'requires full source capability set')
     def test_capability_set_and_frozen_default(self):
-        c=selection();v=validate(c);c['features']['reported_serial']='1234567'
-        self.assertEqual(v['features']['reported_serial'],'7654321')
-        self.assertEqual(selected_modules(v),['asc','controller','film','framing','identity','touch','wb'])
+        c=selection();v=validate(c)
+        self.assertEqual(selected_modules(v),['asc','controller','film','framing','touch','wb'])
         v['features']['styles']['enabled'].reverse()
         self.assertEqual(validate(v)['features']['styles']['enabled'],list(STYLES))
     def test_firmware_command_never_bypassed(self):
@@ -111,7 +110,7 @@ class PublicSource(unittest.TestCase):
         for p in (ROOT/'modules').rglob('*'):
             if p.suffix in ('.c','.h'):
                 for header in re.findall(r'#include\s+"([^"]+)"',p.read_text()):self.assertTrue((p.parent/header).is_file(),str(p))
-    @unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','identity','framing','wb','asc','film')),'selected bundle is a smaller source closure')
+    @unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','framing','wb','asc','film')),'selected bundle is a smaller source closure')
     def test_deterministic_archive_and_selected_closure(self):
         c=selection();a=archive_bytes(c);c['features']['styles']['enabled'].reverse();b=archive_bytes(c)
         self.assertEqual(a,b)
@@ -122,12 +121,11 @@ class PublicSource(unittest.TestCase):
             for module in selected_modules(c):self.assertTrue(any(n.startswith(prefix+'modules/'+module+'/') for n in names))
             self.assertIn(prefix+'modules/framing/m10_gui_native.h',names)
             self.assertIn(b'uint16_t id;',z.read(prefix+'modules/framing/m10_gui_native.h'))
-            self.assertIn(prefix+'modules/identity/m10_builder.c',names)
             self.assertFalse(any(n.endswith('m10_mirror.S') for n in names))
         with zipfile.ZipFile(io.BytesIO(archive_bytes(DEFAULT))) as z:
             self.assertFalse(any('/modules/' in n for n in z.namelist()))
     def test_archive_contains_no_private_or_firmware_data(self):
-        c=selection() if all((ROOT/'modules'/m).exists() for m in ('touch','identity','framing','wb','asc','film')) else DEFAULT
+        c=selection() if all((ROOT/'modules'/m).exists() for m in ('touch','framing','wb','asc','film')) else DEFAULT
         with zipfile.ZipFile(io.BytesIO(archive_bytes(c))) as z:
             for n in z.namelist():
                 self.assertFalse(n.lower().endswith(('.fw','.img','.bin','.host-resource','.host-fixture','.o','.so','.dylib','.dll','.exe')))
@@ -136,7 +134,7 @@ class PublicSource(unittest.TestCase):
                 self.assertNotIn(b'BEGIN '+b'PRIVATE KEY',data,n)
                 if n.endswith('.json') and '/effects/' not in n:self.assertNotIn(b'"base_gamma": [',data,n)
 
-@unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','identity','framing','wb','asc','film')),'selected bundle omits combined host integration modules')
+@unittest.skipUnless(all((ROOT/'modules'/m).exists() for m in ('touch','framing','wb','asc','film')),'selected bundle omits combined host integration modules')
 class ActualHostIntegration(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -145,14 +143,8 @@ class ActualHostIntegration(unittest.TestCase):
     def tearDownClass(cls):cls.temp.cleanup()
     def test_combined_configuration_calls_real_implementations(self):
         r=run(selection(),self.build,rgb=[120,80,40]);m=r['modules']
-        self.assertEqual(set(m),{'controller','film','framing','identity','touch','wb'})
+        self.assertEqual(set(m),{'controller','film','framing','touch','wb'})
         self.assertEqual(m['touch']['submits'],1);self.assertEqual(m['touch']['outcome'],0)
-        self.assertEqual(m['identity']['reported_software_label'],'7654321')
-        self.assertEqual(m['identity']['preserved_original'],'1000001')
-        self.assertEqual(m['identity']['checked_original_consumer'],'1000001')
-        self.assertEqual(m['identity']['serialized_A431'],'7654321')
-        self.assertEqual(m['identity']['old_capture_after_edit_clear_failure'],'7654321')
-        self.assertTrue(m['identity']['descriptor_restored'])
         self.assertEqual(m['framing']['nominal_gate'],[0,90,720,300])
         self.assertEqual(m['framing']['line_apply_calls'],4);self.assertTrue(m['framing']['restored'])
         self.assertEqual(m['wb']['pairs'],[1,4,1,1,3,1])
@@ -182,11 +174,10 @@ class ActualHostIntegration(unittest.TestCase):
         checkout=package/'leica-m10-open-firmware'
         p=subprocess.run([sys.executable,'-m','leica_source','run-reference','--config','selection.json','--build-dir','build/host','--rgb','120,80,40'],cwd=checkout,capture_output=True,text=True)
         self.assertEqual(p.returncode,0,p.stderr);r=json.loads(p.stdout)
-        self.assertEqual(r['modules']['identity']['reported_software_label'],'7654321')
         p=subprocess.run([sys.executable,'-m','leica_source','build-firmware','--config','selection.json','--output','custom.FW'],cwd=checkout,capture_output=True,text=True)
         self.assertEqual(p.returncode,2);self.assertFalse((checkout/'custom.FW').exists())
     def test_all_C_sources_compile_without_fake_native_implementations(self):
-        r=compile_sources(self.build/'objects');self.assertGreaterEqual(r['C_objects'],20);self.assertFalse(r['native_linked']);self.assertEqual(len(r['compile_only_ARM_objects']),1)
+        r=compile_sources(self.build/'objects');self.assertEqual(r['C_objects'],17);self.assertFalse(r['native_linked']);self.assertEqual(len(r['compile_only_ARM_objects']),1)
     @unittest.skipUnless(os.environ.get('LOCAL_ORDINARY_B2Y') and os.environ.get('LOCAL_ASC_B2Y'),'original local B2Y inputs not redistributed')
     def test_real_local_ASC_composition_and_both_plans(self):
         resource=self.build/'asc.host-resource';prepare_asc(os.environ['LOCAL_ORDINARY_B2Y'],os.environ['LOCAL_ASC_B2Y'],resource)
@@ -269,7 +260,7 @@ class ExtractedBundles(unittest.TestCase):
             for option in ui['default_options']:self.assertEqual(option['disabled'],option['value'] not in config['features']['styles']['enabled'])
             for style in ui['styles']:
                 self.assertEqual(style['disabled'],style['value']=='normal' or style['value'] not in state['catalog']['available']['styles'])
-            for feature,control in [('touch','touch'),('reported_serial','serial'),('frame_guides','guides'),('wb','wb')]:
+            for feature,control in [('touch','touch'),('frame_guides','guides'),('wb','wb')]:
                 self.assertEqual(ui['disabled'][control],not state['catalog']['available']['features'][feature])
             result=self.probe(checkout,{'command':'roundtrip','config':ui['exported']})
             self.assertEqual((result['validate_status'],result['export_status']),(200,200));self.assertEqual(result['selection'],validate(config))

@@ -35,7 +35,7 @@ def main(argv=None):
     a=sub.add_parser('build-source');a.add_argument('--config',required=True,type=Path);a.add_argument('--output',required=True,type=Path)
     a=sub.add_parser('build-firmware');a.add_argument('--config',required=True,type=Path);a.add_argument('--output',required=True,type=Path)
     a=sub.add_parser('compile-sources');a.add_argument('--build-dir',type=Path,default=ROOT/'build/objects')
-    a=sub.add_parser('run-reference');a.add_argument('--config',required=True,type=Path);a.add_argument('--build-dir',type=Path,default=ROOT/'build/host');a.add_argument('--gamma',type=Path);a.add_argument('--asc-resource',type=Path);a.add_argument('--original-serial',default='1000001',help='Declared synthetic host original example');a.add_argument('--next-reported-serial',default='0000002',help='Next software report example; old captured photo stays frozen');a.add_argument('--rgb',default='128,128,128')
+    a=sub.add_parser('run-reference');a.add_argument('--config',required=True,type=Path);a.add_argument('--build-dir',type=Path,default=ROOT/'build/host');a.add_argument('--gamma',type=Path);a.add_argument('--asc-resource',type=Path);a.add_argument('--rgb',default='128,128,128')
     a=sub.add_parser('source-eval');a.add_argument('--style',default='all');a.add_argument('--gamma',type=Path);a.add_argument('--rgb',default='128,128,128')
     a=sub.add_parser('verify-official');a.add_argument('input',type=Path)
     a=sub.add_parser('rebuild-reference');a.add_argument('--input',required=True,type=Path);a.add_argument('--output-dir',required=True,type=Path)
@@ -126,7 +126,7 @@ def main(argv=None):
         elif args.command=='run-reference':
             from .reference import run
             rgb=[int(v) for v in args.rgb.split(',')]
-            result=run(load(args.config),args.build_dir,gamma=args.gamma,asc_resource=args.asc_resource,original_serial=args.original_serial,next_reported_serial=args.next_reported_serial,rgb=rgb)
+            result=run(load(args.config),args.build_dir,gamma=args.gamma,asc_resource=args.asc_resource,rgb=rgb)
         elif args.command=='source-eval':
             from .reference import source_eval
             result=source_eval(args.style,[int(v) for v in args.rgb.split(',')],args.gamma)

@@ -310,7 +310,6 @@ python3 -m leica_source run-reference --config selection.json --build-dir build/
 | 选择 | 实际调用与结果 | 相机上仍缺什么 |
 |---|---|---|
 | 普通触摸 | `tr_completed_tail` 实际分派、清理、UNKNOWN 资源保留；真实 caller/result pool 源码随附 | 真实 producer、7 参数 ABI、pool 生命周期/同步/地址、加载与恢复 |
-| 软件报告序列号 | 实际 `ri_json_locked/freeze/bind/run`：ORIGINAL 验证后，将冻结报告值交给 A431/private 序列化；保留前导零，旧照片不随之后编辑改变 | 普通 M10 factory 调用方、原生 owner、13 imports/serializer ABI 仍未绑定；P 照片路径未实现；不改原始身份/校准/历史 |
 | ASC 两款 look | `m10_b2y_parse` → `m10_asc_preflight` 选择真实 CC1/RGBY 资源、完整/消费长度；closed apply 拒绝 | acquire/idle/cache/epoch/hardware/publish/restore 导入；没有像素 renderer |
 | 19 款胶片配方 | 800T 真实公式；18 GRKit 配方（14 彩色 / 4 黑白）通过已接受通用引擎实际求值，保留可选 hue/post、knots/selective 分支 | GRKit 本地精确 gamma；M10 输入域/原生 bank/性能/selector/loader |
 | ASC 风格 / 取景框组合 | `sfc_freeze/apply/restore` 直接调用 ASC、LVF、普通 M10 u16 ID 后端；真实 PARTIAL 与各域恢复责任 | 真 GUI owner/锁/显示域、同帧 stock-hide、redraw/退出恢复及 ASC 原生导入 |
@@ -320,14 +319,9 @@ python3 -m leica_source run-reference --config selection.json --build-dir build/
 主机回调在 `host/` 中明确标为 HOST，它们不替代生产 owner。新接受的 identity
 C helper/header 也保留；原厂指令镜像因版权边界不分发，缺失符号不以测试替身补成生产代码。
 所选七位序列号会实际进入新 C 配置、original+reported 捕获快照及报告值序列化。
-原始记录/raw8/S 始终独立保留；当前软件报告可更新，旧捕获仍使用原冻结报告值。
-主机示例默认 ORIGINAL 为声明的合成值 `1000001`，后续报告为 `0000002`，可明确指定：
-
-```sh
-python3 -m leica_source run-reference --config selection.json --original-serial 0001234 --next-reported-serial 0000009
-```
-
-输出同时列出 A431/private 报告值、原始值、后续当前值、clear/default 后值及旧捕获值。
+**身份元数据改写不在本仓库范围内。** 软件报告序列号、original/reported 双身份模型
+以及 A431/private 序列化演示均已移除。它们的作用是让照片报告一个不属于本机的编号，
+无论是否刻意保留原值，这都是一项伪造能力。本项目不提供。
 
 > **注意：本仓库不含 identity 实现。** `host/identity/` 与 `modules/identity/` 都不在
 > 这份代码树里，所以上面这条命令**不会产生 identity 输出**——它会静默返回

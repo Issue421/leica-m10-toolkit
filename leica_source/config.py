@@ -11,7 +11,7 @@ OFFICIAL = dict(url='https://leica-camera.com/sites/default/files/M10-4.26.36.10
                 bytes=127615696, sha256='d6ef5b77b70451d2b6a31fc4a090bf8f664c1e07a8bebade657aff7da692423c',
                 img_sha256='393d3c13a13e88ef43b58a07585dce06ce667f7c596da849f41af4653d9a0460')
 DEFAULT = {'schema':'leica.source-selection/v1', 'baseline':BASELINE, 'features':{
-    'touch':False, 'reported_serial':None, 'styles':{'enabled':['normal'],'default':'normal'},
+    'touch':False, 'styles':{'enabled':['normal'],'default':'normal'},
     'frame_guides':{'enabled':False,'preset':0}, 'jpeg_crop':False,
     'wb':{'enabled':False,'gains':['1','1','1']}, 'low_noise_shutter':False}}
 STYLE_CATALOG=json.loads((ROOT/'leica_source/style_catalog.json').read_text())
@@ -47,8 +47,6 @@ def validate(value):
     f=value['features']; keys(f, DEFAULT['features'], 'features')
     for k in ('touch','jpeg_crop','low_noise_shutter'):
         if type(f[k]) is not bool: raise ConfigError(k+' must be boolean')
-    if f['reported_serial'] is not None and (type(f['reported_serial']) is not str or not re.fullmatch(r'[0-9]{7}', f['reported_serial'])):
-        raise ConfigError('reported_serial must be null or exactly seven ASCII digits')
     styles=f['styles'];keys(styles,('enabled','default'),'styles')
     if type(styles['enabled']) is not list or not styles['enabled'] or any(type(v) is not str or v not in STYLES for v in styles['enabled']) or len(set(styles['enabled']))!=len(styles['enabled']): raise ConfigError('enabled styles must be a nonempty unique list of known style IDs')
     if 'normal' not in styles['enabled'] or type(styles['default']) is not str or styles['default'] not in styles['enabled']: raise ConfigError('normal and the one default style must be enabled')
@@ -95,7 +93,7 @@ def capabilities():
     modules=available_modules()
     styles=[s for s in STYLES if s=='normal' or ('asc' if s.startswith('asc_') else 'film') in modules]
     return {'modules':modules,'styles':styles,'features':{
-        'touch':'touch' in modules,'reported_serial':False,
+        'touch':'touch' in modules,
         'frame_guides':'framing' in modules,'wb':'wb' in modules,
         'jpeg_crop':True,'low_noise_shutter':True}}
 

@@ -167,15 +167,11 @@ private identity/calibration/photos, target binaries and device protocol senders
 The new identity builder C helper is present with its unresolved native import;
 no test double is offered as its production implementation.
 
-The identity demo now exercises the accepted dual original/reported source rather
-than a separate label renderer. Leading zeros survive; editing the current report,
-default/clear and later source failure do not change the old captured report.
-Original record/raw8/S and full canonical uint64 identity stay separate. Use
-`run-reference --original-serial 0001234 --next-reported-serial 0000009` for declared
-synthetic host inputs. Actual photo-builder source is ordinary-M10-only; M10-P
-photos, factory callers and native owner/import/serializer bindings are unimplemented.
-The host external-segment/private-ready doubles are explicitly labelled, never a
-production mb_thumb_builder. No persistence, all-ID or no-trace claim is made.
+Identity metadata rewriting is **not part of this repository**. The reported-serial
+path, the dual original/reported identity model and the A431/private serialization
+demo were removed: they exist to make a photograph report a serial number that is
+not the camera's own, and that is a forgery capability regardless of how carefully
+the original value is preserved. This project does not ship it.
 
 The pointer32 touch wrapper is compiled as a freestanding ARM object using an
 ARM-capable clang; other C objects compile for the host. Neither is native-linked.

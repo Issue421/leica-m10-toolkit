@@ -47,7 +47,7 @@
       "path": "README.en.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "c429c2b0714266008f2c5eaebb18c0b415e1a341a3f0afdf8654a3a58e1fdf67",
+      "public_sha256": "25df001c54132c1be69d17b6f57a27f812ec74098ca2d287e13d00076de4ef55",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -55,7 +55,7 @@
       "path": "README.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "18c8a7b39def027fc82c023833117ca0359b0e45ed837a28bbd09af954f14b8e",
+      "public_sha256": "bf63f702a80f4a8bb0314de62448f91ab78b1618487d0c1eb084293c44bee013",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {
@@ -143,7 +143,7 @@
       "path": "leica_source/__main__.py",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "08c1aa15b97ac47cb686e173e68a177cab44a6c7ab2f3e848275314726d38c67",
+      "public_sha256": "42d878796fc2d275c466bd73e0e38e122dec3a83923eee9fb1fb0fb365e27a34",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {

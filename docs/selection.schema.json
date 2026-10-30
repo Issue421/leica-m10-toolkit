@@ -21,7 +21,6 @@
       "additionalProperties": false,
       "required": [
         "touch",
-        "reported_serial",
         "styles",
         "frame_guides",
         "jpeg_crop",
@@ -31,17 +30,6 @@
       "properties": {
         "touch": {
           "type": "boolean"
-        },
-        "reported_serial": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "type": "string",
-              "pattern": "^[0-9]{7}$"
-            }
-          ]
         },
         "styles": {
           "type": "object",

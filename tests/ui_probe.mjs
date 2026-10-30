@@ -27,4 +27,4 @@ vm.runInNewContext(script,context);
 await new Promise(resolve=>setImmediate(resolve));
 if(elements.download.disabled)throw Error('Initialization failed: '+elements.result.textContent);
 await elements.download.listeners.click();
-process.stdout.write(JSON.stringify({configuration:context.configuration(),exported:sent,styles:elements.styles.children.map(x=>({value:x.value,checked:x.checked,disabled:x.disabled})),disabled:Object.fromEntries(['touch','serial','guides','preset','wb','gain-r','gain-g','gain-b'].map(id=>[id,elements[id].disabled])),default_options:elements['default-style'].options.map(x=>({value:x.value,disabled:x.disabled})),bundle_status:elements['bundle-status'].textContent}));
+process.stdout.write(JSON.stringify({configuration:context.configuration(),exported:sent,styles:elements.styles.children.map(x=>({value:x.value,checked:x.checked,disabled:x.disabled})),disabled:Object.fromEntries(['touch','guides','preset','wb','gain-r','gain-g','gain-b'].map(id=>[id,elements[id].disabled])),default_options:elements['default-style'].options.map(x=>({value:x.value,disabled:x.disabled})),bundle_status:elements['bundle-status'].textContent}));

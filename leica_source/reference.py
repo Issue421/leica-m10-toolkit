@@ -21,7 +21,6 @@ GAMMA_SHA='2c8f21661161934be5b419e613dca60b9c2b9ba7eafec747c0afdbaf3077ae0f'
 ASC_SHA='0ed4a05cc5b74c07108c0d7e6ab531a7a86a798420a246e2dafa8a1da1efcaf3'
 SOURCES={
  'touch':['touch_repair.c'],
- 'identity':['identity_core.c','capture_metadata.c','native_bridge.c','checked_driver.c','m10_builder.c','reported_identity.c'],
  'framing':['lvf.c'],
  'controller':['style_framing.c','film_closed.c','../asc/m10_asc.c','../framing/lvf.c','../framing/m10_gui_backend.c'],
  'asc':['m10_asc.c','closed_imports.c'],
@@ -112,7 +111,7 @@ def film_rgb(look,rgb,gamma=None):
             'domain':'sRGB-shaper decode -> scene-linear sRGB primaries -> exact GRKit source model -> display code',
             'code_license':'MIT','effect_license':record['licensing']['recipe_data'],'recipe_id':look,'monochrome':bool(effect['flags']),'gamma':'user local exact hash; not distributed'}
 
-def run(config,build_dir,*,rgb=(128,128,128),gamma=None,asc_resource=None,original_serial='1000001',next_reported_serial='0000002',touch_state=0,touch_event=0x113,touch_raw=0):
+def run(config,build_dir,*,rgb=(128,128,128),gamma=None,asc_resource=None,touch_state=0,touch_event=0x113,touch_raw=0):
     shot=validate(config); f=shot['features'];style=f['styles']['default']
     if f['jpeg_crop'] or f['low_noise_shutter']: raise MissingInput('Selected JPEG crop/low-noise shutter has no executable implementation; selection can be exported for development but cannot run.')
     # Validate all required local data before executing selected components.
@@ -134,22 +133,6 @@ def run(config,build_dir,*,rgb=(128,128,128),gamma=None,asc_resource=None,origin
         if module=='touch':
             out=(C.c_uint32*7)(); lib.reference_touch(C.c_uint(touch_state),C.c_uint(touch_event),C.c_int(touch_raw),out)
             result['modules']['touch']=dict(zip(('outcome','submits','payload_frees','debug_calls','retained_envelope','retained_payload','prepares'),out))
-        elif module=='identity':
-            if len(original_serial)!=7 or not original_serial.isascii() or not original_serial.isdigit(): raise ValueError('original host example must be seven ASCII digits')
-            if type(next_reported_serial) is not str or len(next_reported_serial)!=7 or not next_reported_serial.isascii() or not next_reported_serial.isdigit():raise ValueError('next reported host example must be seven ASCII digits')
-            out=(C.c_ubyte*112)(); status=lib.reference_identity(f['reported_serial'].encode(),original_serial.encode(),next_reported_serial.encode(),out)
-            if status: raise ValueError('identity reference failed: '+str(status))
-            b=bytes(out); result['modules']['identity']={
-                'api':'ri_json_locked -> ri_freeze_locked -> ri_bind_metadata -> ri_run -> cd/mb/cm/nb',
-                'reported_software_label':b[:7].decode(),'reported_raw8':b[8:16].hex(),'preserved_original':b[16:23].decode(),
-                'checked_original_consumer':b[16:23].decode(),'serialized_A431':b[24:31].decode(),'serialized_private_raw8':b[32:40].hex(),
-                'current_after_edit':b[40:47].decode(),'current_after_default':b[48:55].decode(),'old_capture_after_edit_clear_failure':b[56:63].decode(),
-                'original_S_raw8':b[64:72].hex(),'builder_reported17_hex':b[72:89].hex(),'descriptor_restored':bool(b[89] and b[90]),
-                'original_record_and_S_unchanged':bool(b[91]),'full_canonical_uint64_epoch_preserved':bool(b[92]),
-                'identity_serializations':b[93],'synthetic_nonidentity_descriptor_calls':b[94],
-                'current_reported_ptp16':b[95:111].decode(),'host_original_example':True,'native_label_publication':False,
-                'builder_boundary':'explicit HOST external-segment double only; production mb_thumb_builder unresolved',
-                'scope':'ordinary M10 source; no persistence, all-ID coverage or no-trace claim'}
         elif module=='wb':
             fractions=[Fraction(x) for x in f['wb']['gains']]; gains=(C.c_uint32*6)(*[v for q in fractions for v in (q.numerator,q.denominator)])
             original=struct.pack('<6I',1,2,1,1,3,2); out=(C.c_ubyte*24)()

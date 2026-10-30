@@ -38,23 +38,16 @@ corrected. See [docs/status.md](docs/status.md) for the per-feature state,
 [docs/contributing-ideas.md](docs/contributing-ideas.md) for work that needs no
 hardware.
 
-> **Not in this tree.** The read-only PTP/IP client (`tools/m10_ptp_readonly.py`)
-> and the patch generators (`tools/m10_patch.py`, including its `xpan` mode) are
-> summarised below and were verified against hardware, but they are **not part of
-> this published source tree** — `tools/` here contains only `m10sym/extract.py`.
-> The findings are recorded so the protocol and crop-constant work can be
+> **Not in this tree.** The patch generators (`tools/m10_patch.py`, including its
+> `xpan` mode) are summarised below and were verified against hardware, but they
+> are **not part of this published source tree** — `tools/` here contains only
+> `m10sym/extract.py`. The findings are recorded so the crop-constant work can be
 > reproduced; the tooling itself is not shipped.
 
 Newly established:
 
-- **PTP/IP works on the ordinary M10.** The gateway omits `EndData` and puts a
-  length-less name in `InitCommandAck`; handling both yields `GetDeviceInfo`
-  (verified on hardware: `LEICA M10 / 03.22.23.38`), 27 operations, 159 properties.
-- **The M10 has no shell.** Ports 22/23/80/443/5001 are closed; only 15740 answers.
-  The main board appears to the Wi-Fi module as a PTP (Still Image) USB device, not
-  storage, so there is no file-level path on this body.
-- **The five vendor opcodes are MTP object-property calls**: `0x9801`/`0x9802`/
-  `0x9803`/`0x9805` read, **`0x9804` writes** (object rating). Do not call `0x9804`.
+- **The M10 has no shell.** There is no file-level path into this body; ports were
+  scanned and the result recorded in the private tree.
 - **B2Y parity**: the two editions share 82 keys with byte-identical payloads, and
   the four M10 "generic" entries are the first N bytes of the ASC edition's
   `_FILMMODE:UNKNOWN` entries. Adding `_FILMMODE` entries is therefore inert.
@@ -70,10 +63,9 @@ Newly established:
   the restore preaction is a logging stub; there is no A/B or golden image.
 
 Delivered **in the private research tree, not in this one**:
-`tools/m10_ptp_readonly.py` (read-only, hardware-tested) and `tools/m10_patch.py`
-(`menu` / `b2y` / `film` generators that operate on files the user supplies and
-reproduce the analysis artifacts byte-for-byte, plus `xpan` which emits the crop
-specification). Neither file is present here — see the note above.
+`tools/m10_patch.py` (`menu` / `b2y` / `film` generators that operate on files the
+user supplies and reproduce the analysis artifacts byte-for-byte, plus `xpan`
+which emits the crop specification). It is not present here — see the note above.
 
 **XPan is the flagship crop target.** 65:24 cannot be widened on a 3:2 sensor, so it
 is a full-width, height-cropped 6016 × 2224 frame (13.4 MP, 0.12 % off 65:24, and the

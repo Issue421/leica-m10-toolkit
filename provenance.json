@@ -63,7 +63,7 @@
       "path": "ROADMAP.md",
       "license": "MIT",
       "original_sha256": null,
-      "public_sha256": "fc07fadf633e4cbc6539eec0ce93fa6417a1ce9aee61a1b1f50007800b749c65",
+      "public_sha256": "65c0a5a859e14c803cd2e5c2c095526213e85423fab8d26c96938664cc069bf6",
       "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     },
     {

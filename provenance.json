@@ -116,6 +116,30 @@
     },
     {
       "origin": "project-original portable native adaptation",
+      "path": "docs/scope-policy.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "70a187826c65e5c4b09bcdb848d809d0bd4d8f5a13a378aff48ddba0f0065dde",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "docs/status.en.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "c72cd73a1566d058ce635774f99b94d3f8a9e81ae9c3b3e7c35d4cb8f810e391",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
+      "path": "docs/status.md",
+      "license": "MIT",
+      "original_sha256": null,
+      "public_sha256": "9ddd83777a427c6ce4be6245292d1b7e272c7c7f76839bfcfcb9007faeb2a5ba",
+      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
+    },
+    {
+      "origin": "project-original portable native adaptation",
       "path": "examples/native-legacy-v1.json",
       "license": "MIT",
       "original_sha256": null,
@@ -737,22 +761,6 @@
       "original_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
       "public_sha256": "572e155b5b897bf827c23e13d3c46bf480113c81c8f54ea57a72c166cbc233e8",
       "transformation": "Unmodified bytes; portable destination path only."
-    },
-    {
-      "origin": "project-original portable native adaptation",
-      "path": "docs/status.md",
-      "license": "MIT",
-      "original_sha256": null,
-      "public_sha256": "9ddd83777a427c6ce4be6245292d1b7e272c7c7f76839bfcfcb9007faeb2a5ba",
-      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
-    },
-    {
-      "origin": "project-original portable native adaptation",
-      "path": "docs/status.en.md",
-      "license": "MIT",
-      "original_sha256": null,
-      "public_sha256": "c72cd73a1566d058ce635774f99b94d3f8a9e81ae9c3b3e7c35d4cb8f810e391",
-      "transformation": "New portable native CLI/source/recipe/documentation with exact stock-bound validation; no official resource content."
     }
   ]
 }

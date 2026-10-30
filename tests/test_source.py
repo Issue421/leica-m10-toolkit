@@ -58,7 +58,7 @@ class PublicSource(unittest.TestCase):
         # Null is legal only for the declared paths and their exact attribution.
         authored_paths={
             'NOTICE.md','README.en.md','README.md','ROADMAP.md','codec/__init__.py',
-            'docs/native-development.md','docs/status.md','docs/status.en.md',
+            'docs/native-development.md','docs/scope-policy.md','docs/status.md','docs/status.en.md',
             'examples/native-legacy-v1.json',
             'examples/native-original.json','examples/native-synthetic-combined.json',
             'leica_source/__main__.py','leica_source/export.py',
